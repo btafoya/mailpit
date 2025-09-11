@@ -86,7 +86,7 @@ INSTALL_PATH=/usr/bin sudo sh < <(curl -sL https://raw.githubusercontent.com/bta
 ### Download static binary (Windows, Linux, macOS)
 
 Grab the latest static binaries from upstream releases and rename to `mailsandbox` if desired:  
-https://github.com/axllent/MailSandbox/releases/latest
+https://github.com/btafoya/MailSandbox/releases/latest
 
 ### Docker
 
@@ -101,7 +101,7 @@ docker run -d --name mailsandbox \
 
 ### Compile from source
 
-See upstream instructions: https://MailSandbox.axllent.org/docs/install/source/
+See upstream instructions: https://MailSandbox.premadev.com/docs/install/source/
 
 ## Usage
 
@@ -119,7 +119,7 @@ brew services start MailSandbox
 
 ### Quick test
 
-See upstream quick test docs: https://MailSandbox.axllent.org/docs/install/testing/
+See upstream quick test docs: https://MailSandbox.premadev.com/docs/install/testing/
 
 ## Postmark API Emulation
 
@@ -376,7 +376,7 @@ telnet localhost 1025
 ## Configuring sendmail
 
 MailSandbox’s SMTP server defaults to port **1025**. Configure your sending application or MTA accordingly.  
-MailSandbox’s sendmail replacement docs apply here: https://MailSandbox.axllent.org/docs/install/sendmail/
+MailSandbox’s sendmail replacement docs apply here: https://MailSandbox.premadev.com/docs/install/sendmail/
 
 ## Migration Guide (MailSandbox → MailSandbox)
 
@@ -388,18 +388,18 @@ MailSandbox’s sendmail replacement docs apply here: https://MailSandbox.axllen
 
 ## Documentation
 
-This README summarizes both upstream and fork-specific features. For detailed configuration of core features (search filters, HTTPS/auth, POP3, storage backends, screenshots, tagging, relaying, forwarding, chaos, webhooks, etc.), consult the upstream docs: https://MailSandbox.axllent.org/docs/
+This README summarizes both upstream and fork-specific features. For detailed configuration of core features (search filters, HTTPS/auth, POP3, storage backends, screenshots, tagging, relaying, forwarding, chaos, webhooks, etc.), consult the upstream docs: https://MailSandbox.premadev.com/docs/
 
 ## API
 
-- **Upstream API v1**: https://MailSandbox.axllent.org/docs/api-v1/  
+- **Upstream API v1**: https://MailSandbox.premadev.com/docs/api-v1/  
 - **Postmark emulation**: Enabled via `--postmark-api` (see examples above).
 
 ## Credits & Acknowledgements
 
 - **MailSandbox** — © [Axel Lenferna de la Motte](https://github.com/axllent) and contributors. Original project, codebase, docs, and ongoing inspiration.  
   Repository: https://github.com/axllent/MailSandbox  
-  Website/Docs: https://MailSandbox.axllent.org
+  Website/Docs: https://MailSandbox.premadev.com
 
 - **MailHog** — The original inspiration for developer email testing tools.  
   Repository: https://github.com/mailhog/MailHog
@@ -408,4 +408,4 @@ This README summarizes both upstream and fork-specific features. For detailed co
 
 ## License
 
-MailSandbox inherits the upstream license from MailSandbox. See `LICENSE` for details.
+MailSandbox inherits the upstream license from Mailpit. See `LICENSE` for details.
