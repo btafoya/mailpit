@@ -100,18 +100,18 @@ type AnalyzeMessageOutput struct {
 
 // HTMLCheckResult represents HTML check results
 type HTMLCheckResult struct {
-	Score       float32                 `json:"score"`
-	Summary     string                  `json:"summary"`
-	Issues      []string                `json:"issues"`
+	Score       float32                `json:"score"`
+	Summary     string                 `json:"summary"`
+	Issues      []string               `json:"issues"`
 	ClientStats map[string]interface{} `json:"clientStats"`
 }
 
 // LinkCheckResult represents link check results
 type LinkCheckResult struct {
-	TotalLinks   int      `json:"totalLinks"`
-	BrokenLinks  []string `json:"brokenLinks"`
-	ValidLinks   []string `json:"validLinks"`
-	Warnings     []string `json:"warnings"`
+	TotalLinks  int      `json:"totalLinks"`
+	BrokenLinks []string `json:"brokenLinks"`
+	ValidLinks  []string `json:"validLinks"`
+	Warnings    []string `json:"warnings"`
 }
 
 // ListMessages lists recent messages in Mailpit
@@ -279,7 +279,7 @@ func AnalyzeMessage(ctx context.Context, session *mcp.ServerSession, params *mcp
 			output.HTMLCheck = &HTMLCheckResult{
 				Score: htmlResult.Total.Supported,
 			}
-			
+
 			// Extract warnings as issues
 			issues := []string{}
 			for _, warning := range htmlResult.Warnings {
@@ -377,13 +377,13 @@ func convertAddresses(addresses []*mail.Address) []string {
 
 func convertHeaders(msg storage.Message) map[string]string {
 	headers := make(map[string]string)
-	
+
 	// Add common headers
 	headers["From"] = msg.From.String()
 	headers["Subject"] = msg.Subject
 	headers["Date"] = msg.Date.Format(time.RFC1123Z)
 	headers["Message-ID"] = msg.MessageID
-	
+
 	if len(msg.To) > 0 {
 		headers["To"] = joinAddresses(msg.To)
 	}
@@ -393,7 +393,7 @@ func convertHeaders(msg storage.Message) map[string]string {
 	if len(msg.ReplyTo) > 0 {
 		headers["Reply-To"] = joinAddresses(msg.ReplyTo)
 	}
-	
+
 	return headers
 }
 

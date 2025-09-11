@@ -108,7 +108,7 @@ func RunMCPStdio() {
 	logger.Log().Info("[mcp] starting server on stdio transport")
 
 	server := InitMCPServer()
-	
+
 	// Create stdio transport
 	trans := mcp.NewStdioTransport()
 

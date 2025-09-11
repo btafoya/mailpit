@@ -6,19 +6,19 @@ import (
 
 // PostmarkEmailRequest represents a single email request in Postmark format
 type PostmarkEmailRequest struct {
-	From          string                 `json:"From"`
-	To            string                 `json:"To"`
-	Cc            string                 `json:"Cc,omitempty"`
-	Bcc           string                 `json:"Bcc,omitempty"`
-	Subject       string                 `json:"Subject"`
-	Tag           string                 `json:"Tag,omitempty"`
-	HtmlBody      string                 `json:"HtmlBody,omitempty"`
-	TextBody      string                 `json:"TextBody,omitempty"`
-	ReplyTo       string                 `json:"ReplyTo,omitempty"`
-	Headers       []PostmarkHeader       `json:"Headers,omitempty"`
-	Attachments   []PostmarkAttachment   `json:"Attachments,omitempty"`
-	MessageStream string                 `json:"MessageStream,omitempty"`
-	Metadata      map[string]string      `json:"Metadata,omitempty"`
+	From          string               `json:"From"`
+	To            string               `json:"To"`
+	Cc            string               `json:"Cc,omitempty"`
+	Bcc           string               `json:"Bcc,omitempty"`
+	Subject       string               `json:"Subject"`
+	Tag           string               `json:"Tag,omitempty"`
+	HtmlBody      string               `json:"HtmlBody,omitempty"`
+	TextBody      string               `json:"TextBody,omitempty"`
+	ReplyTo       string               `json:"ReplyTo,omitempty"`
+	Headers       []PostmarkHeader     `json:"Headers,omitempty"`
+	Attachments   []PostmarkAttachment `json:"Attachments,omitempty"`
+	MessageStream string               `json:"MessageStream,omitempty"`
+	Metadata      map[string]string    `json:"Metadata,omitempty"`
 }
 
 // PostmarkHeader represents an email header
@@ -30,7 +30,7 @@ type PostmarkHeader struct {
 // PostmarkAttachment represents an email attachment
 type PostmarkAttachment struct {
 	Name        string `json:"Name"`
-	Content     string `json:"Content"`     // Base64 encoded
+	Content     string `json:"Content"` // Base64 encoded
 	ContentType string `json:"ContentType"`
 	ContentID   string `json:"ContentID,omitempty"`
 }

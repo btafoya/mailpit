@@ -9,8 +9,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/btafoya/mailsandbox/internal/logger"
 	"github.com/axllent/semver"
+	"github.com/btafoya/mailsandbox/internal/logger"
 )
 
 //go:embed schemas/*

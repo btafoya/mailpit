@@ -24,20 +24,20 @@ const (
 func SendEmailHandler(w http.ResponseWriter, r *http.Request) {
 	// Check payload size
 	r.Body = http.MaxBytesReader(w, r.Body, maxPayloadSize)
-	
+
 	// Parse request
 	var req PostmarkEmailRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		sendErrorResponse(w, 422, "Invalid JSON in request body")
 		return
 	}
-	
+
 	// Validate required fields
 	if err := validateEmailRequest(req); err != nil {
 		sendErrorResponse(w, 422, err.Error())
 		return
 	}
-	
+
 	// Convert to MIME format
 	mimeData, err := convertToMIME(req)
 	if err != nil {
@@ -45,28 +45,28 @@ func SendEmailHandler(w http.ResponseWriter, r *http.Request) {
 		sendErrorResponse(w, 500, "Failed to process email")
 		return
 	}
-	
+
 	// Store message directly
 	var username *string
 	if config.TagsUsername {
 		user := "postmark-api"
 		username = &user
 	}
-	
+
 	id, err := storage.Store(&mimeData, username)
 	if err != nil {
 		logger.Log().Errorf("[postmark] failed to store message: %v", err)
 		sendErrorResponse(w, 500, "Failed to store message")
 		return
 	}
-	
+
 	// Apply tags if any
 	if tags := extractTags(req); len(tags) > 0 {
 		if _, err := storage.SetMessageTags(id, tags); err != nil {
 			logger.Log().Warnf("[postmark] failed to set tags: %v", err)
 		}
 	}
-	
+
 	// Send success response
 	resp := PostmarkEmailResponse{
 		To:          req.To,
@@ -75,11 +75,11 @@ func SendEmailHandler(w http.ResponseWriter, r *http.Request) {
 		ErrorCode:   0,
 		Message:     "OK",
 	}
-	
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(resp)
-	
+
 	logger.Log().Debugf("[postmark] message sent: %s", id)
 }
 
@@ -87,14 +87,14 @@ func SendEmailHandler(w http.ResponseWriter, r *http.Request) {
 func SendBatchHandler(w http.ResponseWriter, r *http.Request) {
 	// Check payload size
 	r.Body = http.MaxBytesReader(w, r.Body, maxPayloadSize)
-	
+
 	// Parse request
 	var batch PostmarkBatchRequest
 	if err := json.NewDecoder(r.Body).Decode(&batch); err != nil {
 		sendErrorResponse(w, 422, "Invalid JSON in request body")
 		return
 	}
-	
+
 	// Validate batch size
 	if len(batch) == 0 {
 		sendErrorResponse(w, 422, "Batch cannot be empty")
@@ -104,10 +104,10 @@ func SendBatchHandler(w http.ResponseWriter, r *http.Request) {
 		sendErrorResponse(w, 422, fmt.Sprintf("Batch size exceeds maximum of %d messages", maxBatchSize))
 		return
 	}
-	
+
 	// Process each email
 	responses := make(PostmarkBatchResponse, len(batch))
-	
+
 	for i, req := range batch {
 		// Validate request
 		if err := validateEmailRequest(req); err != nil {
@@ -118,7 +118,7 @@ func SendBatchHandler(w http.ResponseWriter, r *http.Request) {
 			}
 			continue
 		}
-		
+
 		// Convert to MIME format
 		mimeData, err := convertToMIME(req)
 		if err != nil {
@@ -130,14 +130,14 @@ func SendBatchHandler(w http.ResponseWriter, r *http.Request) {
 			}
 			continue
 		}
-		
+
 		// Store message directly
 		var username *string
 		if config.TagsUsername {
 			user := "postmark-api-batch"
 			username = &user
 		}
-		
+
 		id, err := storage.Store(&mimeData, username)
 		if err != nil {
 			logger.Log().Errorf("[postmark] batch item %d: failed to store message: %v", i, err)
@@ -148,14 +148,14 @@ func SendBatchHandler(w http.ResponseWriter, r *http.Request) {
 			}
 			continue
 		}
-		
+
 		// Apply tags if any
 		if tags := extractTags(req); len(tags) > 0 {
 			if _, err := storage.SetMessageTags(id, tags); err != nil {
 				logger.Log().Warnf("[postmark] batch item %d: failed to set tags: %v", i, err)
 			}
 		}
-		
+
 		// Success response
 		responses[i] = PostmarkEmailResponse{
 			To:          req.To,
@@ -164,10 +164,10 @@ func SendBatchHandler(w http.ResponseWriter, r *http.Request) {
 			ErrorCode:   0,
 			Message:     "OK",
 		}
-		
+
 		logger.Log().Debugf("[postmark] batch message %d sent: %s", i, id)
 	}
-	
+
 	// Send batch response
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
@@ -197,7 +197,7 @@ func sendErrorResponse(w http.ResponseWriter, code int, message string) {
 		ErrorCode: code,
 		Message:   message,
 	}
-	
+
 	// Map Postmark error codes to HTTP status codes
 	httpStatus := http.StatusBadRequest
 	switch code {
@@ -208,7 +208,7 @@ func sendErrorResponse(w http.ResponseWriter, code int, message string) {
 	case 500:
 		httpStatus = http.StatusInternalServerError
 	}
-	
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(httpStatus)
 	json.NewEncoder(w).Encode(resp)
@@ -230,7 +230,7 @@ func AuthMiddleware(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Get token from header
 		token := r.Header.Get("X-Postmark-Server-Token")
-		
+
 		// Check if authentication is required
 		if !config.PostmarkAcceptAnyToken && config.PostmarkAPIToken != "" {
 			if token != config.PostmarkAPIToken {
@@ -239,10 +239,10 @@ func AuthMiddleware(next http.HandlerFunc) http.HandlerFunc {
 				return
 			}
 		}
-		
+
 		// Log request
 		logger.Log().Debugf("[postmark] %s request from %s", r.URL.Path, r.RemoteAddr)
-		
+
 		// Call next handler
 		next(w, r)
 	}
@@ -253,17 +253,17 @@ func RegisterRoutes(r *mux.Router) {
 	if !config.EnablePostmarkAPI {
 		return
 	}
-	
+
 	logger.Log().Info("[postmark] enabling Postmark API emulation")
-	
+
 	// Register endpoints
 	r.HandleFunc("/postmark/email", AuthMiddleware(SendEmailHandler)).Methods("POST")
 	r.HandleFunc("/postmark/email/batch", AuthMiddleware(SendBatchHandler)).Methods("POST")
-	
+
 	// Handle OPTIONS for CORS
 	r.HandleFunc("/postmark/email", handleOptions).Methods("OPTIONS")
 	r.HandleFunc("/postmark/email/batch", handleOptions).Methods("OPTIONS")
-	
+
 	if config.PostmarkAcceptAnyToken {
 		logger.Log().Warn("[postmark] accepting any authentication token (development mode)")
 	} else if config.PostmarkAPIToken != "" {
