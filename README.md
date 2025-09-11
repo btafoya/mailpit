@@ -119,7 +119,7 @@ docker run -d --name mailsandbox   -p 127.0.0.1:8025:8025 -p 1025:1025   -e MP_M
 
 ## Migration Guide
 
-- Binary name remains `mailpit`; create a symlink if you prefer `mailsandbox`.  
+- Binary name renamed `mailsandbox`; create a symlink if you prefer `mailpit`.  
 - Default ports unchanged: HTTP `8025`, SMTP `1025`.  
 - APIs: REST API unchanged; Postmark & MCP are opt-in.  
 - Docker: use forked image for MCP/Postmark features.
@@ -130,7 +130,7 @@ docker run -d --name mailsandbox   -p 127.0.0.1:8025:8025 -p 1025:1025   -e MP_M
 
 - **[Mailpit](https://github.com/axllent/mailpit)** — by Axel Lenferna de la Motte and contributors. Original project and active development.  
 - **[MailHog](https://github.com/mailhog/MailHog)** — the original inspiration for mainer email testing tools.  
-- **MailSandbox** — maintained by Brian Tafoya, adding Postmark API emulation and MCP server support.  
+- **[MailSandbox](https://github.com/btafoya/mailsandbox)** — maintained by Brian Tafoya, adding Postmark API emulation and MCP server support.  
 
 ---
 
