@@ -114,7 +114,11 @@ func ReindexAll() {
 		}
 
 		// roll back if it fails
-		defer func() { _ = tx.Rollback() }()
+		defer func() {
+			if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
+				logger.Log().Warnf("[db] failed to rollback transaction: %v", err)
+			}
+		}()
 
 		// insert mail summary data
 		for _, u := range updates {

@@ -193,7 +193,11 @@ func DeleteSearch(search, timezone string) error {
 		}
 
 		// roll back if it fails
-		defer func() { _ = tx.Rollback() }()
+		defer func() {
+			if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
+				logger.Log().Warnf("[db] failed to rollback transaction: %v", err)
+			}
+		}()
 
 		for _, ids := range chunks {
 			delIDs := make([]interface{}, len(ids))

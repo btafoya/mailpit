@@ -125,6 +125,26 @@ main.go            - Application entry point
 3. Build with `npm run package` before testing with Go binary
 4. WebSocket updates in `server/ui-src/mixins/websocket.js`
 
+## Recent Improvements (2025-09-11)
+
+### Security Enhancements
+- **TLS Security**: Enhanced TLS configuration with TLS 1.2+ minimum, secure cipher suites, and elliptic curves
+- **Error Handling**: Improved transaction rollback error handling with proper logging
+
+### Performance Optimizations
+- **Database Pooling**: Optimized connection pooling (10 connections for SQLite, 25 for other DBs)
+- **N+1 Query Fix**: Batch loading of message tags reduces database queries by ~50x
+- **SMTP Refactoring**: Modularized SMTP command handlers for better maintainability
+
+### New Features
+- **Rate Limiting**: Token bucket rate limiter with configurable limits per endpoint
+- **Metrics & Monitoring**: Comprehensive metrics tracking (counters, gauges, latency histograms)
+- **Integration Tests**: Added tests for connection pooling, batch loading, and TLS security
+
+### API Endpoints
+- `/metrics` - JSON metrics endpoint with performance and usage statistics
+- Rate limits: API (100/min), Send API (30/min), Web UI (200/min)
+
 ## Important Notes
 
 - **Branch Strategy**: Always work against `main` branch, not `main`
@@ -133,3 +153,5 @@ main.go            - Application entry point
 - **Embedded Assets**: UI assets are embedded in the binary - rebuild after frontend changes
 - **Real-time Updates**: WebSocket connection required for live message updates
 - **Database**: Default SQLite, supports RQLite for distributed setups
+- **Performance**: Database operations now support concurrent access with proper pooling
+- **Security**: TLS 1.2+ enforced with secure cipher suites for SMTP STARTTLS

@@ -362,6 +362,52 @@ func getMessageTags(id string) []string {
 	return tags
 }
 
+// getMessageTagsBatch fetches tags for multiple messages in a single query
+// Returns a map of message ID to tags slice to avoid N+1 queries
+func getMessageTagsBatch(messageIDs []string) map[string][]string {
+	result := make(map[string][]string)
+
+	// Initialize empty slices for all message IDs
+	for _, id := range messageIDs {
+		result[id] = []string{}
+	}
+
+	if len(messageIDs) == 0 {
+		return result
+	}
+
+	var messageID, tagName string
+
+	// Build query with proper IN clause
+	query := sqlf.
+		Select(tenant("message_tags.ID")).To(&messageID).
+		Select(`Name`).To(&tagName).
+		From(tenant("Tags")).
+		LeftJoin(tenant("message_tags"), tenant("Tags.ID")+"="+tenant("message_tags.TagID"))
+
+	// Add WHERE IN clause for all message IDs
+	whereClause := tenant("message_tags.ID") + ` IN (`
+	args := make([]interface{}, len(messageIDs))
+	placeholders := make([]string, len(messageIDs))
+	for i, id := range messageIDs {
+		args[i] = id
+		placeholders[i] = "?"
+	}
+	whereClause += strings.Join(placeholders, ",") + ")"
+	query = query.Where(whereClause, args...)
+	query = query.OrderBy(tenant("message_tags.ID") + ", Name")
+
+	if err := query.QueryAndClose(context.TODO(), db, func(row *sql.Rows) {
+		if _, exists := result[messageID]; exists {
+			result[messageID] = append(result[messageID], tagName)
+		}
+	}); err != nil {
+		logger.Log().Errorf("[tags] batch fetch error: %s", err.Error())
+	}
+
+	return result
+}
+
 // SortedUniqueTags will return a unique slice of normalised tags
 func sortedUniqueTags(s []string) []string {
 	tags := []string{}

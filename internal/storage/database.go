@@ -114,9 +114,21 @@ func InitDB() error {
 		}
 	}
 
-	// prevent "database locked" errors
+	// Configure connection pooling for better performance
+	// SQLite with WAL mode can handle multiple readers, one writer
 	// @see https://github.com/mattn/go-sqlite3#faq
-	db.SetMaxOpenConns(1)
+	if sqlDriver == "sqlite" {
+		// SQLite can handle multiple readers with WAL mode
+		// but still needs serialized writes
+		db.SetMaxOpenConns(10)
+		db.SetMaxIdleConns(5)
+		db.SetConnMaxLifetime(time.Hour)
+	} else {
+		// For other databases (MySQL, PostgreSQL), use proper pooling
+		db.SetMaxOpenConns(25)
+		db.SetMaxIdleConns(10)
+		db.SetConnMaxLifetime(5 * time.Minute)
+	}
 
 	if sqlDriver == "sqlite" {
 		if config.DisableWAL {

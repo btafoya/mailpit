@@ -86,7 +86,11 @@ func Store(body *[]byte, username *string) (string, error) {
 	}
 
 	// roll back if it fails
-	defer func() { _ = tx.Rollback() }()
+	defer func() {
+		if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
+			logger.Log().Warnf("[db] failed to rollback transaction: %v", err)
+		}
+	}()
 
 	subject := env.GetHeader("Subject")
 	size := uint64(len(*body))
@@ -274,9 +278,22 @@ func List(start int, beforeTS int64, limit int) ([]MessageSummary, error) {
 		return results, err
 	}
 
-	// set tags for listed messages only
-	for i, m := range results {
-		results[i].Tags = getMessageTags(m.ID)
+	// Batch load tags for all messages to avoid N+1 queries
+	if len(results) > 0 {
+		messageIDs := make([]string, len(results))
+		for i, m := range results {
+			messageIDs[i] = m.ID
+		}
+
+		// Get all tags in a single query
+		tagMap := getMessageTagsBatch(messageIDs)
+
+		// Assign tags to messages
+		for i, m := range results {
+			if tags, exists := tagMap[m.ID]; exists {
+				results[i].Tags = tags
+			}
+		}
 	}
 
 	dbLastAction = time.Now()
@@ -754,7 +771,11 @@ func DeleteAllMessages() error {
 	}
 
 	// roll back if it fails
-	defer func() { _ = tx.Rollback() }()
+	defer func() {
+		if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
+			logger.Log().Warnf("[db] failed to rollback transaction: %v", err)
+		}
+	}()
 
 	tables := []string{"mailbox", "mailbox_data", "tags", "message_tags"}
 
