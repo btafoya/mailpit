@@ -40,7 +40,7 @@ aarch64 | arm64)
     ;;
 esac
 
-GH_REPO="axllent/mailsandbox"
+GH_REPO="btafoya/mailsandbox"
 INSTALL_PATH="${INSTALL_PATH:-/usr/local/bin}"
 TIMEOUT=90
 # This is used to authenticate with the GitHub API. (Fix the public rate limiting issue)
