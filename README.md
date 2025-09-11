@@ -136,3 +136,8 @@ docker run -d --name mailsandbox   -p 127.0.0.1:8025:8025 -p 1025:1025   -e MP_M
 
 ## License
 MailSandbox inherits the upstream license from Mailpit. See `LICENSE` for details.
+
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=btafoya/mailsandbox&type=Date)](https://www.star-history.com/#btafoya/mailsandbox&Date)
