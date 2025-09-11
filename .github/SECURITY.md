@@ -4,7 +4,7 @@ Your efforts to responsibly disclose your findings are appreciated.
 
 ** **Please do _not_ report security vulnerabilities through public GitHub issues.** **
 
-If you believe you have found a **security vulnerability**, then please report it to security@axllent.org so 
+If you believe you have found a **security vulnerability**, then please report it to security@btafoya.org so 
 your findings can be investigated, and if confirmed, fixed and released in a timely manner.
 
 Your report should include:

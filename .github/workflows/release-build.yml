@@ -45,4 +45,4 @@ jobs:
         md5sum: false
         overwrite: true
         retry: 5
-        ldflags: -w -X "github.com/axllent/mailsandbox/config.Version=${{ github.ref_name }}"
+        ldflags: -w -X "github.com/btafoya/mailsandbox/config.Version=${{ github.ref_name }}"

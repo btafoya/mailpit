@@ -1,7 +1,7 @@
 # Fork Maintenance Notes
 
 ## About This Fork
-This is an independent fork of [axllent/mailsandbox](https://github.com/axllent/mailsandbox) with additional enterprise features.
+This is an independent fork of [btafoya/mailsandbox](https://github.com/btafoya/mailsandbox) with additional enterprise features.
 
 ## Enhanced Features
 - **Postmark API Emulation**: Full compatibility with Postmark's API for testing
@@ -10,7 +10,7 @@ This is an independent fork of [axllent/mailsandbox](https://github.com/axllent/
 - **Extended Documentation**: Comprehensive guides for all new features
 
 ## Upstream Relationship
-- Original: https://github.com/axllent/mailsandbox
+- Original: https://github.com/btafoya/mailsandbox
 - This fork: https://github.com/btafoya/mailsandbox
 - Status: Independent development with selective upstream merging
 

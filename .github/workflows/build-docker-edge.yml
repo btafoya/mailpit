@@ -41,5 +41,5 @@ jobs:
           "VERSION=edge-${{ steps.short-sha.outputs.sha }}"
         push: true
         tags: |
-          axllent/mailsandbox:edge
+          btafoya/mailsandbox:edge
           ghcr.io/${{ github.repository }}:edge

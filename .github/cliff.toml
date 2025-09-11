@@ -20,7 +20,7 @@ postprocessors = [
   {pattern = "messsage", replace = "message"},
   {pattern = '(?i) go modules', replace = " Go dependencies"},
   {pattern = '(?i) node modules', replace = " node dependencies"},
-  {pattern = '#([0-9]+)', replace = "[#$1](https://github.com/axllent/mailpit/issues/$1)"},
+  {pattern = '#([0-9]+)', replace = "[#$1](https://github.com/btafoya/mailpit/issues/$1)"},
 ]
 trim = true
 
