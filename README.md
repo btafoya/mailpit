@@ -3,7 +3,7 @@
 > **Fork of [Mailpit](https://github.com/axllent/mailpit)** adding Postmark API emulation and an MCP server for AI-assisted debugging.  
 > Inspired by and grateful to the original work on **Mailpit** and **MailHog**. See [Credits](#credits--acknowledgements).
 
-[![Build docker edge images](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker-edge.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker-edge.yml)
+[![Build docker edge images](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker-edge.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker-edge.yml)[![Build docker images](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker.yml)
 
 <p align="center">
   <a href="https://github.com/btafoya/mailsandbox">Repository</a> •
