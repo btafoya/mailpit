@@ -3,7 +3,14 @@
 > **Fork of [Mailpit](https://github.com/axllent/mailpit)** adding Postmark API emulation and an MCP server for AI-assisted debugging.  
 > Inspired by and grateful to the original work on **Mailpit** and **MailHog**. See [Credits](#credits--acknowledgements).
 
-[![Build docker edge images](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker-edge.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker-edge.yml) [![Build docker images](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker.yml) [![CodeQL](https://github.com/btafoya/mailsandbox/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/codeql-analysis.yml) [![Tests (rqlite)](https://github.com/btafoya/mailsandbox/actions/workflows/tests-rqlite.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/tests-rqlite.yml) [![Build & release](https://github.com/btafoya/mailsandbox/actions/workflows/release-build.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/release-build.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Go Version](https://img.shields.io/badge/Go-1.24.3+-blue.svg)](https://golang.org/)
+[![Docker](https://img.shields.io/badge/Docker-supported-blue.svg)](https://www.docker.com/)
+[![Build docker edge images](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker-edge.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker-edge.yml)
+[![Build docker images](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/build-docker.yml)
+[![CodeQL](https://github.com/btafoya/mailsandbox/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/codeql-analysis.yml)
+[![Tests (rqlite)](https://github.com/btafoya/mailsandbox/actions/workflows/tests-rqlite.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/tests-rqlite.yml)
+[![Build & release](https://github.com/btafoya/mailsandbox/actions/workflows/release-build.yml/badge.svg)](https://github.com/btafoya/mailsandbox/actions/workflows/release-build.yml)
 
 <p align="center">
   <a href="https://github.com/btafoya/mailsandbox">Repository</a> •
