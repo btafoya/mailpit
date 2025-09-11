@@ -17,7 +17,7 @@ services:
       # Postmark API emulation
       MP_POSTMARK_API: true
       MP_POSTMARK_TOKEN: your-secret-token-here
-      # MP_POSTMARK_ACCEPT_ANY: true  # Uncomment for development
+      # MP_POSTMARK_ACCEPT_ANY: true  # Uncomment for mainment
       
       # MCP server for AI assistants
       MP_MCP_SERVER: true

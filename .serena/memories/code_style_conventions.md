@@ -50,9 +50,9 @@
 ```
 
 ## Git Workflow
-- Main branch: `develop` (active development)
+- Main branch: `main` (active mainment)
 - Feature branches: `feature/*`
-- All PRs target `develop` branch
+- All PRs target `main` branch
 - Tests must pass before merge
 - Linting must pass before merge
 

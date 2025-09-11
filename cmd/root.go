@@ -23,8 +23,8 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "mailpit",
-	Short: "Mailpit is an email testing tool for developers",
-	Long: `Mailpit is an email testing tool for developers.
+	Short: "Mailpit is an email testing tool for mainers",
+	Long: `Mailpit is an email testing tool for mainers.
 
 It acts as an SMTP server, and provides a web interface to view all captured emails.
 

@@ -19,7 +19,7 @@ services:
       # Postmark API emulation
       MP_POSTMARK_API: true
       MP_POSTMARK_TOKEN: dev-token-123
-      MP_POSTMARK_ACCEPT_ANY: true  # Development mode
+      MP_POSTMARK_ACCEPT_ANY: true  # mainment mode
       
       # MCP server configuration
       MP_MCP_SERVER: true
@@ -51,7 +51,7 @@ services:
       POSTMARK_API_URL: http://mailsandbox:8025
       
       # Other app configuration
-      NODE_ENV: development
+      NODE_ENV: mainment
       DATABASE_URL: postgresql://postgres:password@postgres:5432/myapp_dev
     volumes:
       - ./example-app:/app

@@ -15,7 +15,7 @@ If you find a bug or have a feature request, please [open an issue](https://gith
 
 ## Reporting security issues
 
-Please do not report security issues publicly in GitHub. Refer to [SECURITY document](https://github.com/axllent/mailsandbox/blob/develop/.github/SECURITY.md) for instructions and contact information.
+Please do not report security issues publicly in GitHub. Refer to [SECURITY document](https://github.com/axllent/mailsandbox/blob/main/.github/SECURITY.md) for instructions and contact information.
 
 
 
@@ -43,7 +43,7 @@ Please do not report security issues publicly in GitHub. Refer to [SECURITY docu
    Run all tests to ensure nothing is broken. This is a mandatory step as pull requests cannot be merged unless they pass the automated testing.
 
 6. **Ensure your changes pass linting**  
-   Ensure your changes pass the [code linting](https://mailsandbox.axllent.org/docs/development/code-linting/) requirements. This is a mandatory step as pull requests cannot be merged unless they pass the automated linting tests.
+   Ensure your changes pass the [code linting](https://mailsandbox.axllent.org/docs/mainment/code-linting/) requirements. This is a mandatory step as pull requests cannot be merged unless they pass the automated linting tests.
 
 7. **Commit and push**  
    Write a clear commit message:
@@ -54,7 +54,7 @@ Please do not report security issues publicly in GitHub. Refer to [SECURITY docu
    ```
 
 8. **Open a pull request**  
-   Go to your fork on GitHub and open a pull request against the `develop` branch. Fill out the PR template and describe your changes.
+   Go to your fork on GitHub and open a pull request against the `main` branch. Fill out the PR template and describe your changes.
 
 ---
 

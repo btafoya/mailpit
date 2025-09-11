@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
 
 name: Build docker edge images
 jobs:

@@ -20,7 +20,7 @@ mailsandbox --postmark-api --postmark-token "your-secret-token"
 Environment variables:
 - `MP_POSTMARK_API=true` - Enable Postmark API
 - `MP_POSTMARK_TOKEN=your-secret-token` - Set authentication token
-- `MP_POSTMARK_ACCEPT_ANY=true` - Accept any token (development mode)
+- `MP_POSTMARK_ACCEPT_ANY=true` - Accept any token (mainment mode)
 
 ### Endpoints
 

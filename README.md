@@ -1,4 +1,4 @@
-# MailSandbox — email testing & simulation for developers
+# MailSandbox — email testing & simulation for mainers
 
 > **Fork of [Mailpit](https://github.com/axllent/mailpit)** adding Postmark API emulation and an MCP server for AI-assisted debugging.  
 > Inspired by and grateful to the original work on **Mailpit** and **MailHog**. See [Credits](#credits--acknowledgements).
@@ -13,7 +13,7 @@
 
 ---
 
-**MailSandbox** is a small, fast, low-memory, zero-dependency, multi-platform **email testing tool & API** for developers.  
+**MailSandbox** is a small, fast, low-memory, zero-dependency, multi-platform **email testing tool & API** for mainers.  
 It provides an SMTP server, modern web interface, REST API, Postmark API emulation, and an MCP server for AI-powered workflows.
 
 ---
@@ -28,7 +28,7 @@ It provides an SMTP server, modern web interface, REST API, Postmark API emulati
 - ⚡ **Performance** — 100–200 emails/sec, automatic pruning (default 500 emails)  
 - 🧪 **Chaos mode** — inject SMTP errors to test resilience  
 - 🔔 **Integrations** — webhooks, browser notifications, `List-Unsubscribe` validation  
-- 🆕 **Postmark API emulation** — drop-in replacement for Postmark during development  
+- 🆕 **Postmark API emulation** — drop-in replacement for Postmark during mainment  
 - 🤖 **MCP server** — AI assistants (e.g., Claude Code) can list, search, and analyze messages  
 
 ---
@@ -51,7 +51,7 @@ pkg install mailpit
 
 ### Script (Linux & macOS)
 ```bash
-sudo sh < <(curl -sL https://raw.githubusercontent.com/axllent/mailpit/develop/install.sh)
+sudo sh < <(curl -sL https://raw.githubusercontent.com/axllent/mailpit/main/install.sh)
 ```
 
 ### Static binary
@@ -147,8 +147,8 @@ docker run -d --name mailsandbox   -p 127.0.0.1:8025:8025 -p 1025:1025   -e MP_M
 
 ## Credits & Acknowledgements
 
-- **[Mailpit](https://github.com/axllent/mailpit)** — by Axel Lenferna de la Motte and contributors. Original project and active development.  
-- **[MailHog](https://github.com/mailhog/MailHog)** — the original inspiration for developer email testing tools.  
+- **[Mailpit](https://github.com/axllent/mailpit)** — by Axel Lenferna de la Motte and contributors. Original project and active mainment.  
+- **[MailHog](https://github.com/mailhog/MailHog)** — the original inspiration for mainer email testing tools.  
 - **MailSandbox** — maintained by Brian Tafoya, adding Postmark API emulation and MCP server support.  
 
 ---

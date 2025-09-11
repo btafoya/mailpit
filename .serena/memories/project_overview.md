@@ -1,7 +1,7 @@
 # MailSandbox Project Overview
 
 ## Purpose
-MailSandbox is an email and SMTP testing tool for developers. It acts as an SMTP server to capture emails, provides a modern web interface to view and test captured emails, and includes an API for automated integration testing. It's designed to be fast, lightweight, and easy to use for local development and testing.
+MailSandbox is an email and SMTP testing tool for mainers. It acts as an SMTP server to capture emails, provides a modern web interface to view and test captured emails, and includes an API for automated integration testing. It's designed to be fast, lightweight, and easy to use for local mainment and testing.
 
 ## Tech Stack
 - **Backend**: Go (1.24.3)
@@ -9,7 +9,7 @@ MailSandbox is an email and SMTP testing tool for developers. It acts as an SMTP
 - **Build Tools**: esbuild (for frontend), go build (for backend)
 - **Database**: SQLite (via modernc.org/sqlite) or RQLite for distributed setups
 - **Testing**: Go standard testing framework
-- **Version Control**: Git (develop branch for active development)
+- **Version Control**: Git (main branch for active mainment)
 
 ## Key Features
 - SMTP server (port 1025 by default)

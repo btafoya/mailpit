@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-MailSandbox is an email and SMTP testing tool for developers. It captures emails via SMTP (port 1025), provides a web UI (port 8025) for viewing/testing, and includes a REST API for automation.
+MailSandbox is an email and SMTP testing tool for mainers. It captures emails via SMTP (port 1025), provides a web UI (port 8025) for viewing/testing, and includes a REST API for automation.
 
 **Tech Stack**: Go 1.24.3 backend, Vue 3 + Bootstrap 5 frontend, SQLite storage, WebSockets for real-time updates
 
@@ -19,9 +19,9 @@ go run main.go
 go run main.go --smtp 0.0.0.0:1025 --ui 0.0.0.0:8025
 ```
 
-### Development Workflow
+### mainment Workflow
 ```bash
-# Frontend development (watch mode)
+# Frontend mainment (watch mode)
 npm install
 npm run watch
 
@@ -105,7 +105,7 @@ main.go            - Application entry point
 4. **Build assets**: `npm run package`
 5. **Verify build**: `go build`
 
-## Common Development Tasks
+## Common mainment Tasks
 
 ### Adding a New API Endpoint
 1. Add handler in `server/apiv1/`
@@ -121,13 +121,13 @@ main.go            - Application entry point
 
 ### Updating the Web UI
 1. Vue components in `server/ui-src/components/`
-2. Run `npm run watch` for development
+2. Run `npm run watch` for mainment
 3. Build with `npm run package` before testing with Go binary
 4. WebSocket updates in `server/ui-src/mixins/websocket.js`
 
 ## Important Notes
 
-- **Branch Strategy**: Always work against `develop` branch, not `main`
+- **Branch Strategy**: Always work against `main` branch, not `main`
 - **Parallel Test Issues**: Use `-p 1` flag to prevent test conflicts
 - **Static Binary**: Build with `CGO_ENABLED=0` for portability
 - **Embedded Assets**: UI assets are embedded in the binary - rebuild after frontend changes

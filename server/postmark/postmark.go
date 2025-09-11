@@ -265,7 +265,7 @@ func RegisterRoutes(r *mux.Router) {
 	r.HandleFunc("/postmark/email/batch", handleOptions).Methods("OPTIONS")
 	
 	if config.PostmarkAcceptAnyToken {
-		logger.Log().Warn("[postmark] accepting any authentication token (development mode)")
+		logger.Log().Warn("[postmark] accepting any authentication token (mainment mode)")
 	} else if config.PostmarkAPIToken != "" {
 		logger.Log().Info("[postmark] authentication enabled")
 	} else {

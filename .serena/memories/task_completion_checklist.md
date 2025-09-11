@@ -1,6 +1,6 @@
 # Task Completion Checklist for MailSandbox
 
-When completing any development task in MailSandbox, ensure you:
+When completing any mainment task in MailSandbox, ensure you:
 
 ## Before Committing
 
@@ -32,7 +32,7 @@ When completing any development task in MailSandbox, ensure you:
 1. Ensure all tests pass
 2. Ensure all linting passes
 3. Update relevant documentation if needed
-4. Target the `develop` branch for PRs
+4. Target the `main` branch for PRs
 5. Write clear commit messages
 6. Fill out the PR template completely
 

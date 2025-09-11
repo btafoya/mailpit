@@ -12,7 +12,7 @@ This is an independent fork of [btafoya/mailsandbox](https://github.com/btafoya/
 ## Upstream Relationship
 - Original: https://github.com/btafoya/mailsandbox
 - This fork: https://github.com/btafoya/mailsandbox
-- Status: Independent development with selective upstream merging
+- Status: Independent mainment with selective upstream merging
 
 ## Sync Strategy
 ```bash
@@ -20,13 +20,13 @@ This is an independent fork of [btafoya/mailsandbox](https://github.com/btafoya/
 git fetch upstream
 
 # Review changes
-git log upstream/develop --oneline
+git log upstream/main --oneline
 
 # Cherry-pick specific fixes
 git cherry-pick <commit>
 
 # Or merge carefully
-git merge upstream/develop --no-ff
+git merge upstream/main --no-ff
 ```
 
 ## Version Strategy

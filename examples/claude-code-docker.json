@@ -31,7 +31,7 @@
     },
 
     "mailsandbox-compose-exec": {
-      "// DESCRIPTION": "Execute via docker-compose (recommended for development)",
+      "// DESCRIPTION": "Execute via docker-compose (recommended for mainment)",
       "command": "docker-compose", 
       "args": [
         "-f", "examples/docker-compose.mcp.yml",
