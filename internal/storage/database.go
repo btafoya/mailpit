@@ -114,17 +114,18 @@ func InitDB() error {
 		}
 	}
 
-	// Configure connection pooling for better performance
-	// SQLite with WAL mode can handle multiple readers, one writer
+	// Configure connection pooling
+	// SQLite only supports a single writer connection but can have multiple readers
+	// To avoid "database is locked" errors, we use a single connection for SQLite
 	// @see https://github.com/mattn/go-sqlite3#faq
 	if sqlDriver == "sqlite" {
-		// SQLite can handle multiple readers with WAL mode
-		// but still needs serialized writes
-		db.SetMaxOpenConns(10)
-		db.SetMaxIdleConns(5)
-		db.SetConnMaxLifetime(time.Hour)
+		// SQLite works best with a single connection to avoid locking issues
+		// WAL mode still allows concurrent readers at the SQLite level
+		db.SetMaxOpenConns(1)  // Single connection to prevent locking
+		db.SetMaxIdleConns(1)
+		db.SetConnMaxLifetime(0)  // Unlimited lifetime for single connection
 	} else {
-		// For other databases (MySQL, PostgreSQL), use proper pooling
+		// For other databases (MySQL, PostgreSQL, RQLite), use proper pooling
 		db.SetMaxOpenConns(25)
 		db.SetMaxIdleConns(10)
 		db.SetConnMaxLifetime(5 * time.Minute)
