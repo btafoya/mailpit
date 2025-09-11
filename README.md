@@ -37,21 +37,9 @@ It provides an SMTP server, modern web interface, REST API, Postmark API emulati
 
 The web UI runs on `http://0.0.0.0:8025` and SMTP on `0.0.0.0:1025`.
 
-### Package managers
-```bash
-# macOS
-brew install mailpit
-
-# Arch Linux
-yay -S mailpit
-
-# FreeBSD
-pkg install mailpit
-```
-
 ### Script (Linux & macOS)
 ```bash
-sudo sh < <(curl -sL https://raw.githubusercontent.com/axllent/mailpit/main/install.sh)
+sudo sh < <(curl -sL https://raw.githubusercontent.com/btafoya/mailsandbox/main/install.sh)
 ```
 
 ### Static binary
@@ -70,15 +58,6 @@ List options:
 ```bash
 mailsandbox -h
 ```
-
-Run in background (Homebrew):
-```bash
-brew services start mailpit
-```
-
-Quick test: [docs](https://mailpit.axllent.org/docs/install/testing/)
-
----
 
 ## Postmark API Emulation
 
