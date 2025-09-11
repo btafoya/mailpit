@@ -193,4 +193,3 @@ func TestMessageListPerformance(t *testing.T) {
 		t.Errorf("Failed to clean up test messages: %v", err)
 	}
 }
-

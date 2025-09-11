@@ -161,4 +161,3 @@ func DefaultRateLimitConfig() *RateLimitConfig {
 		WebUILimit:        200, // Web UI: 200 requests per minute
 	}
 }
-
