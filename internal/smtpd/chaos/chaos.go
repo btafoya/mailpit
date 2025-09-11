@@ -9,7 +9,7 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/axllent/mailpit/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/logger"
 )
 
 var (

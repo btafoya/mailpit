@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/tools"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/tools"
 	"github.com/vanng822/go-premailer/premailer"
 	"golang.org/x/net/html"
 	"golang.org/x/net/html/atom"

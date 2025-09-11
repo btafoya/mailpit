@@ -1,6 +1,6 @@
-# Task Completion Checklist for Mailpit
+# Task Completion Checklist for MailSandbox
 
-When completing any development task in Mailpit, ensure you:
+When completing any development task in MailSandbox, ensure you:
 
 ## Before Committing
 
@@ -24,9 +24,9 @@ When completing any development task in Mailpit, ensure you:
 3. Build full application:
    ```bash
    npm run package
-   CGO_ENABLED=0 go build -ldflags "-s -w" -o mailpit
+   CGO_ENABLED=0 go build -ldflags "-s -w" -o mailsandbox
    ```
-4. Test the built binary: `./mailpit`
+4. Test the built binary: `./mailsandbox`
 
 ## Before Opening a PR
 1. Ensure all tests pass

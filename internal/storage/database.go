@@ -13,8 +13,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/logger"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/logger"
 	"github.com/klauspost/compress/zstd"
 	"github.com/leporo/sqlf"
 

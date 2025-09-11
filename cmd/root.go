@@ -6,17 +6,17 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/auth"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/prometheus"
-	"github.com/axllent/mailpit/internal/smtpd"
-	"github.com/axllent/mailpit/internal/smtpd/chaos"
-	"github.com/axllent/mailpit/internal/storage"
-	"github.com/axllent/mailpit/internal/tools"
-	"github.com/axllent/mailpit/server"
-	mcpserver "github.com/axllent/mailpit/server/mcp"
-	"github.com/axllent/mailpit/server/webhook"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/auth"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/prometheus"
+	"github.com/btafoya/mailsandbox/internal/smtpd"
+	"github.com/btafoya/mailsandbox/internal/smtpd/chaos"
+	"github.com/btafoya/mailsandbox/internal/storage"
+	"github.com/btafoya/mailsandbox/internal/tools"
+	"github.com/btafoya/mailsandbox/server"
+	mcpserver "github.com/btafoya/mailsandbox/server/mcp"
+	"github.com/btafoya/mailsandbox/server/webhook"
 	"github.com/spf13/cobra"
 )
 
@@ -29,7 +29,7 @@ var rootCmd = &cobra.Command{
 It acts as an SMTP server, and provides a web interface to view all captured emails.
 
 Documentation:
-  https://github.com/axllent/mailpit
+  https://github.com/btafoya/mailsandbox
   https://mailpit.axllent.org/docs/`,
 	Run: func(_ *cobra.Command, _ []string) {
 		if err := config.VerifyConfig(); err != nil {

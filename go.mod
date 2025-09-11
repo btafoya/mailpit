@@ -1,4 +1,4 @@
-module github.com/axllent/mailpit
+module github.com/btafoya/mailsandbox
 
 go 1.24.3
 

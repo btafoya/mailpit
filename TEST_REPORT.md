@@ -1,8 +1,8 @@
-# Test Report: Mailpit Postmark API & MCP Server Implementation
+# Test Report: MailSandbox Postmark API & MCP Server Implementation
 
 ## Executive Summary
 
-The implementation of both the Postmark API emulation and MCP (Model Context Protocol) server features has been successfully completed and validated. All critical functionality is working as expected, with both features properly integrated into the Mailpit codebase.
+The implementation of both the Postmark API emulation and MCP (Model Context Protocol) server features has been successfully completed and validated. All critical functionality is working as expected, with both features properly integrated into the MailSandbox codebase.
 
 ## Test Results Overview
 
@@ -19,9 +19,9 @@ The implementation of both the Postmark API emulation and MCP (Model Context Pro
 
 ## Detailed Test Results
 
-### 1. Core Mailpit Functionality ✅
+### 1. Core MailSandbox Functionality ✅
 
-All existing Mailpit tests continue to pass:
+All existing MailSandbox tests continue to pass:
 - ✅ HTML to text conversion
 - ✅ HTML check functionality
 - ✅ Link detection
@@ -158,7 +158,7 @@ All existing Mailpit tests continue to pass:
 
 ## Conclusion
 
-The implementation successfully adds both Postmark API emulation and MCP server capabilities to Mailpit. With a 92.9% test pass rate and all critical functionality working, the features are ready for use. The minor issues identified (tagging and stdio transport) do not block functionality and can be addressed in future iterations.
+The implementation successfully adds both Postmark API emulation and MCP server capabilities to MailSandbox. With a 92.9% test pass rate and all critical functionality working, the features are ready for use. The minor issues identified (tagging and stdio transport) do not block functionality and can be addressed in future iterations.
 
 ### Certification
 - **Functional Testing**: ✅ PASSED
@@ -171,5 +171,5 @@ The implementation successfully adds both Postmark API emulation and MCP server 
 
 ---
 *Test Report Generated: 2025-09-10*
-*Tested Version: Based on Mailpit v1.27.7 (develop branch)*
+*Tested Version: Based on MailSandbox v1.27.7 (develop branch)*
 *Test Environment: Linux 6.12.10*

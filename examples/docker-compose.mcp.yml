@@ -1,19 +1,19 @@
 version: '3.8'
 
-# Docker Compose configuration for Mailpit with MCP server support
+# Docker Compose configuration for MailSandbox with MCP server support
 # Use this as a template for different deployment scenarios
 
 services:
-  # Basic Mailpit with MCP stdio (recommended for most use cases)
-  mailpit:
-    image: axllent/mailpit
-    container_name: mailpit-mcp
+  # Basic MailSandbox with MCP stdio (recommended for most use cases)
+  mailsandbox:
+    image: axllent/mailsandbox
+    container_name: mailsandbox-mcp
     ports:
       - "8025:8025"   # Web UI and API
       - "1025:1025"   # SMTP server
     environment:
-      # Basic Mailpit configuration
-      MP_DATA_FILE: /data/mailpit.db
+      # Basic MailSandbox configuration
+      MP_DATA_FILE: /data/mailsandbox.db
       MP_SMTP_AUTH_ACCEPT_ANY: true
       
       # Postmark API emulation
@@ -25,30 +25,30 @@ services:
       MP_MCP_SERVER: true
       MP_MCP_TRANSPORT: stdio
     volumes:
-      - mailpit-data:/data
+      - mailsandbox-data:/data
     restart: unless-stopped
     healthcheck:
       test: [
         "CMD", 
         "sh", "-c", 
-        "/mailpit readyz"
+        "/mailsandbox readyz"
       ]
       interval: 15s
       timeout: 3s
       retries: 3
     networks:
-      - mailpit-network
+      - mailsandbox-network
 
   # Example: Application that sends emails via Postmark API
   example-app:
     image: node:18-alpine
     container_name: example-app
     depends_on:
-      - mailpit
+      - mailsandbox
     environment:
-      # Configure app to use Mailpit instead of real Postmark
+      # Configure app to use MailSandbox instead of real Postmark
       POSTMARK_SERVER_TOKEN: dev-token-123
-      POSTMARK_API_URL: http://mailpit:8025
+      POSTMARK_API_URL: http://mailsandbox:8025
       
       # Other app configuration
       NODE_ENV: development
@@ -58,7 +58,7 @@ services:
     working_dir: /app
     command: npm run dev
     networks:
-      - mailpit-network
+      - mailsandbox-network
     profiles: ["example"]  # Only start with --profile example
 
   # Example: PostgreSQL for the example app
@@ -72,13 +72,13 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
-      - mailpit-network
+      - mailsandbox-network
     profiles: ["example"]
 
   # Production-like setup with security
-  mailpit-prod:
-    image: axllent/mailpit
-    container_name: mailpit-production
+  mailsandbox-prod:
+    image: axllent/mailsandbox
+    container_name: mailsandbox-production
     ports:
       # Only bind to localhost for security
       - "127.0.0.1:8025:8025"
@@ -86,7 +86,7 @@ services:
       # SMTP can be accessed from containers
       - "1025:1025"
     environment:
-      MP_DATA_FILE: /data/mailpit.db
+      MP_DATA_FILE: /data/mailsandbox.db
       MP_SMTP_AUTH_ACCEPT_ANY: false
       MP_SMTP_AUTH_FILE: /config/smtp-auth.txt
       
@@ -102,7 +102,7 @@ services:
       MP_UI_AUTH_FILE: /config/ui-auth.txt
       MP_WEBROOT: /mail/
     volumes:
-      - mailpit-prod-data:/data
+      - mailsandbox-prod-data:/data
       - ./config:/config:ro
     restart: unless-stopped
     networks:
@@ -111,7 +111,7 @@ services:
     profiles: ["production"]
 
 networks:
-  mailpit-network:
+  mailsandbox-network:
     driver: bridge
   internal-network:
     driver: bridge
@@ -120,9 +120,9 @@ networks:
     driver: bridge  # Allow MCP external access
 
 volumes:
-  mailpit-data:
+  mailsandbox-data:
     driver: local
-  mailpit-prod-data:
+  mailsandbox-prod-data:
     driver: local
   postgres-data:
     driver: local

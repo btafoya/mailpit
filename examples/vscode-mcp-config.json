@@ -1,34 +1,34 @@
 {
   "mcpServers": {
-    "mailpit": {
-      "command": "mailpit",
+    "mailsandbox": {
+      "command": "mailsandbox",
       "args": [
         "--mcp-server",
         "--mcp-transport", "stdio", 
-        "--database", "${workspaceFolder}/.mailpit/mailpit.db",
+        "--database", "${workspaceFolder}/.mailsandbox/mailsandbox.db",
         "--listen", "127.0.0.1:8025",
         "--smtp", "127.0.0.1:1025"
       ],
       "env": {
         "MP_MCP_SERVER": "true",
         "MP_MCP_TRANSPORT": "stdio",
-        "MP_DATA_FILE": "${workspaceFolder}/.mailpit/mailpit.db"
+        "MP_DATA_FILE": "${workspaceFolder}/.mailsandbox/mailsandbox.db"
       }
     },
-    "mailpit-with-postmark": {
-      "command": "mailpit", 
+    "mailsandbox-with-postmark": {
+      "command": "mailsandbox", 
       "args": [
         "--mcp-server",
         "--mcp-transport", "stdio",
         "--postmark-api",
         "--postmark-token", "dev-token-123", 
-        "--database", "${workspaceFolder}/.mailpit/mailpit.db"
+        "--database", "${workspaceFolder}/.mailsandbox/mailsandbox.db"
       ],
       "env": {
         "MP_MCP_SERVER": "true",
         "MP_POSTMARK_API": "true",
         "MP_POSTMARK_TOKEN": "dev-token-123",
-        "MP_DATA_FILE": "${workspaceFolder}/.mailpit/mailpit.db"
+        "MP_DATA_FILE": "${workspaceFolder}/.mailsandbox/mailsandbox.db"
       }
     }
   }

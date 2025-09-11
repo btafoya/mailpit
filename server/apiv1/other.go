@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/htmlcheck"
-	"github.com/axllent/mailpit/internal/linkcheck"
-	"github.com/axllent/mailpit/internal/spamassassin"
-	"github.com/axllent/mailpit/internal/storage"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/htmlcheck"
+	"github.com/btafoya/mailsandbox/internal/linkcheck"
+	"github.com/btafoya/mailsandbox/internal/spamassassin"
+	"github.com/btafoya/mailsandbox/internal/storage"
 	"github.com/gorilla/mux"
 	"github.com/jhillyerd/enmime/v2"
 )

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/axllent/mailpit/internal/smtpd/chaos"
+	"github.com/btafoya/mailsandbox/internal/smtpd/chaos"
 )
 
 // GetChaos returns the current Chaos triggers

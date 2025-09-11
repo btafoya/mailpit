@@ -8,12 +8,12 @@ echo "         POSTMARK API EMULATION TEST SUITE"
 echo "═══════════════════════════════════════════════════════════════"
 
 # Configuration
-MAILPIT_BIN="/tmp/mailpit-test"
+MAILPIT_BIN="/tmp/mailsandbox-test"
 HOST="127.0.0.1"
 HTTP_PORT="18025"
 SMTP_PORT="11025"
 API_TOKEN="test-token-abc123"
-DB_FILE="/tmp/mailpit-test.db"
+DB_FILE="/tmp/mailsandbox-test.db"
 
 # Colors for output
 RED='\033[0;31m'
@@ -34,8 +34,8 @@ cleanup() {
 # Only cleanup on actual exit, not on every test
 trap cleanup EXIT INT TERM
 
-# Start Mailpit with Postmark API enabled
-echo -e "\n${YELLOW}Starting Mailpit with Postmark API...${NC}"
+# Start MailSandbox with Postmark API enabled
+echo -e "\n${YELLOW}Starting MailSandbox with Postmark API...${NC}"
 $MAILPIT_BIN \
     --database $DB_FILE \
     --listen $HOST:$HTTP_PORT \
@@ -45,7 +45,7 @@ $MAILPIT_BIN \
     --verbose &
 
 MAILPIT_PID=$!
-echo "Mailpit started with PID: $MAILPIT_PID"
+echo "MailSandbox started with PID: $MAILPIT_PID"
 
 # Wait for server to be ready
 echo "Waiting for server to be ready..."
@@ -228,12 +228,12 @@ if run_test "Missing required fields returns 422" "$test_cmd" "422"; then
 fi
 ((TOTAL_TESTS++))
 
-# Test 9: Verify messages in Mailpit
+# Test 9: Verify messages in MailSandbox
 echo -e "\n${YELLOW}═══ Test Group: Integration ═══${NC}"
 
 test_cmd='curl -s http://$HOST:$HTTP_PORT/api/v1/messages | python3 -m json.tool | grep -q "messages" && echo "Success"'
 
-if run_test "Messages stored in Mailpit" "$test_cmd" "Success"; then
+if run_test "Messages stored in MailSandbox" "$test_cmd" "Success"; then
     ((PASSED_TESTS++))
 fi
 ((TOTAL_TESTS++))

@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/axllent/mailpit/internal/auth"
-	"github.com/axllent/mailpit/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/auth"
+	"github.com/btafoya/mailsandbox/internal/logger"
 	"github.com/gorilla/websocket"
 )
 

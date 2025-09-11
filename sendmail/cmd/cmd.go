@@ -24,8 +24,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/logger"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/logger"
 	"github.com/mneis/go-telnet"
 	flag "github.com/spf13/pflag"
 )
@@ -191,7 +191,7 @@ func HelpTemplate(args []string) string {
 
 Usage: %s [flags] [recipients] < message
 
-See: https://github.com/axllent/mailpit
+See: https://github.com/btafoya/mailsandbox
 
 Flags:
   -S  string  SMTP server address (default "localhost:1025")

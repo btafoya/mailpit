@@ -3,8 +3,8 @@ package storage
 import (
 	"time"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/server/websockets"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/server/websockets"
 )
 
 var bcStatsDelay = false

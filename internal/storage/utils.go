@@ -7,9 +7,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/axllent/mailpit/internal/html2text"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/tools"
+	"github.com/btafoya/mailsandbox/internal/html2text"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/tools"
 	"github.com/jhillyerd/enmime/v2"
 )
 

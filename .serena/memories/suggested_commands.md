@@ -1,15 +1,15 @@
-# Mailpit Development Commands
+# MailSandbox Development Commands
 
 ## Backend Development
 ```bash
-# Run Mailpit locally
+# Run MailSandbox locally
 go run main.go
 
 # Run with specific options
 go run main.go --smtp 0.0.0.0:1025 --ui 0.0.0.0:8025
 
 # Build the binary
-CGO_ENABLED=0 go build -ldflags "-s -w" -o mailpit
+CGO_ENABLED=0 go build -ldflags "-s -w" -o mailsandbox
 
 # Run tests for specific packages
 go test -p 1 ./internal/storage ./server ./internal/smtpd ./internal/pop3 ./internal/tools ./internal/html2text ./internal/htmlcheck ./internal/linkcheck -v
@@ -54,10 +54,10 @@ npm run update-caniemail
 ## Docker
 ```bash
 # Build Docker image
-docker build -t mailpit .
+docker build -t mailsandbox .
 
 # Run Docker container
-docker run -p 1025:1025 -p 8025:8025 mailpit
+docker run -p 1025:1025 -p 8025:8025 mailsandbox
 ```
 
 ## Full Build Process
@@ -67,10 +67,10 @@ npm install
 npm run package
 
 # 2. Build Go binary
-CGO_ENABLED=0 go build -ldflags "-s -w" -o mailpit
+CGO_ENABLED=0 go build -ldflags "-s -w" -o mailsandbox
 
 # 3. Run the built binary
-./mailpit
+./mailsandbox
 ```
 
 ## Testing Workflow

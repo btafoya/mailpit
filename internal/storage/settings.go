@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/axllent/mailpit/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/logger"
 	"github.com/leporo/sqlf"
 )
 

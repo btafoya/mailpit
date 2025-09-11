@@ -1,11 +1,11 @@
 #!/bin/bash
-# Test script for new Mailpit features
+# Test script for new MailSandbox features
 
 echo "Testing Postmark and MCP features..."
 
-# Start Mailpit with both features enabled
-echo "Starting Mailpit with Postmark API and MCP server..."
-/tmp/mailpit-test \
+# Start MailSandbox with both features enabled
+echo "Starting MailSandbox with Postmark API and MCP server..."
+/tmp/mailsandbox-test \
   --postmark-api \
   --postmark-token "test-token-123" \
   --mcp-server \
@@ -14,7 +14,7 @@ echo "Starting Mailpit with Postmark API and MCP server..."
   --smtp 127.0.0.1:1025 &
 
 MAILPIT_PID=$!
-echo "Mailpit started with PID: $MAILPIT_PID"
+echo "MailSandbox started with PID: $MAILPIT_PID"
 
 # Wait for server to start
 sleep 2
@@ -40,7 +40,7 @@ curl -s http://127.0.0.1:8025/api/v1/messages | python3 -m json.tool | head -20
 
 # Clean up
 echo ""
-echo "Stopping Mailpit..."
+echo "Stopping MailSandbox..."
 kill $MAILPIT_PID 2>/dev/null
 
 echo ""

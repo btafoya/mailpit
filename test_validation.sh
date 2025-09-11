@@ -7,7 +7,7 @@ echo "════════════════════════�
 
 echo ""
 echo "Checking binary compilation..."
-if [ -f "/tmp/mailpit-test" ]; then
+if [ -f "/tmp/mailsandbox-test" ]; then
     echo "✓ Binary exists"
 else
     echo "✗ Binary not found"
@@ -16,26 +16,26 @@ fi
 
 echo ""
 echo "Checking command-line flags..."
-/tmp/mailpit-test --help 2>&1 | grep -q "postmark-api" && echo "✓ Postmark flags present" || echo "✗ Postmark flags missing"
-/tmp/mailpit-test --help 2>&1 | grep -q "mcp-server" && echo "✓ MCP flags present" || echo "✗ MCP flags missing"
+/tmp/mailsandbox-test --help 2>&1 | grep -q "postmark-api" && echo "✓ Postmark flags present" || echo "✗ Postmark flags missing"
+/tmp/mailsandbox-test --help 2>&1 | grep -q "mcp-server" && echo "✓ MCP flags present" || echo "✗ MCP flags missing"
 
 echo ""
 echo "Testing environment variable support..."
-MP_POSTMARK_API=true MP_MCP_SERVER=true /tmp/mailpit-test --help 2>&1 | head -1 > /dev/null && echo "✓ Environment variables work" || echo "✗ Environment variables fail"
+MP_POSTMARK_API=true MP_MCP_SERVER=true /tmp/mailsandbox-test --help 2>&1 | head -1 > /dev/null && echo "✓ Environment variables work" || echo "✗ Environment variables fail"
 
 echo ""
 echo "Checking feature integration in code..."
-grep -q "registerPostmarkRoutes" /home/btafoya/projects/mailpit/server/server.go && echo "✓ Postmark routes registered" || echo "✗ Postmark routes not found"
-grep -q "mcpserver.Start" /home/btafoya/projects/mailpit/server/server.go && echo "✓ MCP server start call found" || echo "✗ MCP server start not found"
+grep -q "registerPostmarkRoutes" /home/btafoya/projects/mailsandbox/server/server.go && echo "✓ Postmark routes registered" || echo "✗ Postmark routes not found"
+grep -q "mcpserver.Start" /home/btafoya/projects/mailsandbox/server/server.go && echo "✓ MCP server start call found" || echo "✗ MCP server start not found"
 
 echo ""
 echo "Validating package structure..."
-[ -d "/home/btafoya/projects/mailpit/server/postmark" ] && echo "✓ Postmark package exists" || echo "✗ Postmark package missing"
-[ -d "/home/btafoya/projects/mailpit/server/mcp" ] && echo "✓ MCP package exists" || echo "✗ MCP package missing"
+[ -d "/home/btafoya/projects/mailsandbox/server/postmark" ] && echo "✓ Postmark package exists" || echo "✗ Postmark package missing"
+[ -d "/home/btafoya/projects/mailsandbox/server/mcp" ] && echo "✓ MCP package exists" || echo "✗ MCP package missing"
 
 echo ""
 echo "Checking for compilation issues..."
-cd /home/btafoya/projects/mailpit
+cd /home/btafoya/projects/mailsandbox
 go build -o /dev/null 2>&1 && echo "✓ Code compiles without errors" || echo "✗ Compilation errors exist"
 
 echo ""
@@ -44,12 +44,12 @@ echo "              RUNTIME VALIDATION"
 echo "═══════════════════════════════════════════════════════════════"
 
 # Kill any existing test instances
-pkill -f "mailpit.*18025" 2>/dev/null || true
+pkill -f "mailsandbox.*18025" 2>/dev/null || true
 sleep 1
 
 echo ""
-echo "Starting Mailpit with both features enabled..."
-/tmp/mailpit-test \
+echo "Starting MailSandbox with both features enabled..."
+/tmp/mailsandbox-test \
   --database /tmp/validate.db \
   --listen 127.0.0.1:18025 \
   --smtp 127.0.0.1:11025 \

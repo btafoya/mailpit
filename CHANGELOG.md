@@ -1,20 +1,20 @@
 # Changelog
 
-Notable changes to Mailpit will be documented in this file.
+Notable changes to MailSandbox will be documented in this file.
 
 ## [v1.27.7]
 
 ### Fix
-- Move HELO/EHLO hostname setting to the correct position in SMTP client creation ([#558](https://github.com/axllent/mailpit/issues/558))
+- Move HELO/EHLO hostname setting to the correct position in SMTP client creation ([#558](https://github.com/axllent/mailsandbox/issues/558))
 
 
 ## [v1.27.6]
 
 ### Feature
-- Add optional --no-release-check to version subcommand ([#557](https://github.com/axllent/mailpit/issues/557))
+- Add optional --no-release-check to version subcommand ([#557](https://github.com/axllent/mailsandbox/issues/557))
 
 ### Chore
-- Set HELO/EHLO hostname when connecting to external SMTP server ([#556](https://github.com/axllent/mailpit/issues/556))
+- Set HELO/EHLO hostname when connecting to external SMTP server ([#556](https://github.com/axllent/mailsandbox/issues/556))
 - Update Go dependencies
 - Update node dependencies
 
@@ -27,13 +27,13 @@ Notable changes to Mailpit will be documented in this file.
 - Update caniemail test database
 
 ### Fix
-- Support optional UIDL argument in POP3 server ([#552](https://github.com/axllent/mailpit/issues/552))
+- Support optional UIDL argument in POP3 server ([#552](https://github.com/axllent/mailsandbox/issues/552))
 
 
 ## [v1.27.4]
 
 ### Feature
-- Allow rejected SMTP recipients to be silently dropped ([#549](https://github.com/axllent/mailpit/issues/549))
+- Allow rejected SMTP recipients to be silently dropped ([#549](https://github.com/axllent/mailsandbox/issues/549))
 
 ### Chore
 - Update Go dependencies
@@ -44,13 +44,13 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.27.3]
 
 ### Fix
-- Fix sendmail when using an  `--smtp-addr <ip>:<port>` ([#542](https://github.com/axllent/mailpit/issues/542))
+- Fix sendmail when using an  `--smtp-addr <ip>:<port>` ([#542](https://github.com/axllent/mailsandbox/issues/542))
 
 
 ## [v1.27.2]
 
 ### Feature
-- Add ability to generate self-signed (snakeoil) certificates for UI, SMTP and POP3 ([#539](https://github.com/axllent/mailpit/issues/539))
+- Add ability to generate self-signed (snakeoil) certificates for UI, SMTP and POP3 ([#539](https://github.com/axllent/mailsandbox/issues/539))
 
 ### Chore
 - Allow sendmail to send to untrusted TLS server
@@ -60,9 +60,9 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- Use MaxMessages to determine pruning ([#536](https://github.com/axllent/mailpit/issues/536))
-- Support angle brackets for text/plain URLs with spaces ([#535](https://github.com/axllent/mailpit/issues/535))
-- Do not check latest release for Prometheus statistics ([#522](https://github.com/axllent/mailpit/issues/522))
+- Use MaxMessages to determine pruning ([#536](https://github.com/axllent/mailsandbox/issues/536))
+- Support angle brackets for text/plain URLs with spaces ([#535](https://github.com/axllent/mailsandbox/issues/535))
+- Do not check latest release for Prometheus statistics ([#522](https://github.com/axllent/mailsandbox/issues/522))
 
 ### Security
 - Prevent integer overflow conversion to uint64
@@ -72,7 +72,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.27.1]
 
 ### Chore
-- Allow unknown href link protocols in HTML view such as myapp:// ([#532](https://github.com/axllent/mailpit/issues/532))
+- Allow unknown href link protocols in HTML view such as myapp:// ([#532](https://github.com/axllent/mailsandbox/issues/532))
 - Update Go dependencies
 - Update node dependencies
 
@@ -89,14 +89,14 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- Align websocket new message values with global Message Summary (no null values) ([#526](https://github.com/axllent/mailpit/issues/526))
+- Align websocket new message values with global Message Summary (no null values) ([#526](https://github.com/axllent/mailsandbox/issues/526))
 
 
 ## [v1.26.2]
 
 ### Feature
-- Store username with messages, auto-tag, and UI display ([#521](https://github.com/axllent/mailpit/issues/521))
-- Allow version checking to be disabled ([#524](https://github.com/axllent/mailpit/issues/524))
+- Store username with messages, auto-tag, and UI display ([#521](https://github.com/axllent/mailsandbox/issues/521))
+- Allow version checking to be disabled ([#524](https://github.com/axllent/mailsandbox/issues/524))
 
 ### Chore
 - Apply linting to all JavaScript/Vue files with eslint & prettier
@@ -104,7 +104,7 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- Improve version polling, add thread safety and exponential backoff ([#523](https://github.com/axllent/mailpit/issues/523))
+- Improve version polling, add thread safety and exponential backoff ([#523](https://github.com/axllent/mailsandbox/issues/523))
 
 ### Test
 - Add JavaScript linting tests to CI
@@ -114,7 +114,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.26.1]
 
 ### Feature
-- Add relay config to preserve (keep) original Message-IDs when relaying messages ([#515](https://github.com/axllent/mailpit/issues/515))
+- Add relay config to preserve (keep) original Message-IDs when relaying messages ([#515](https://github.com/axllent/mailsandbox/issues/515))
 
 ### Chore
 - Update Go dependencies
@@ -122,8 +122,8 @@ Notable changes to Mailpit will be documented in this file.
 - Update caniemail testing database
 
 ### Fix
-- Add optional message_num argument in POP3 LIST command ([#518](https://github.com/axllent/mailpit/issues/518))
-- Use float64 for returned SQL value types for rqlite compatibility ([#520](https://github.com/axllent/mailpit/issues/520))
+- Add optional message_num argument in POP3 LIST command ([#518](https://github.com/axllent/mailsandbox/issues/518))
+- Use float64 for returned SQL value types for rqlite compatibility ([#520](https://github.com/axllent/mailsandbox/issues/520))
 
 ### Test
 - Add small delay in POP3 test after disconnection to allow for background deletion in rqlite
@@ -133,8 +133,8 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.26.0]
 
 ### Feature
-- Send API allow separate auth ([#504](https://github.com/axllent/mailpit/issues/504))
-- Add Prometheus exporter ([#505](https://github.com/axllent/mailpit/issues/505))
+- Send API allow separate auth ([#504](https://github.com/axllent/mailsandbox/issues/504))
+- Add Prometheus exporter ([#505](https://github.com/axllent/mailsandbox/issues/505))
 
 ### Chore
 - Add MP_DATA_FILE deprecation warning
@@ -143,7 +143,7 @@ Notable changes to Mailpit will be documented in this file.
 
 ### Fix
 - Ignore basic auth for OPTIONS requests to API when CORS is set
-- Fix sendmail symlink detection for macOS ([#514](https://github.com/axllent/mailpit/issues/514))
+- Fix sendmail symlink detection for macOS ([#514](https://github.com/axllent/mailsandbox/issues/514))
 
 
 ## [v1.25.1]
@@ -157,13 +157,13 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- Update bootstrap5-tags to fix text pasting in message release modal ([#498](https://github.com/axllent/mailpit/issues/498))
+- Update bootstrap5-tags to fix text pasting in message release modal ([#498](https://github.com/axllent/mailsandbox/issues/498))
 
 
 ## [v1.25.0]
 
 ### Feature
-- Add option to hide the "Delete all" button in web UI ([#495](https://github.com/axllent/mailpit/issues/495))
+- Add option to hide the "Delete all" button in web UI ([#495](https://github.com/axllent/mailsandbox/issues/495))
 
 ### Chore
 - Upgrade to jhillyerd/enmime/v2
@@ -175,20 +175,20 @@ Notable changes to Mailpit will be documented in this file.
 - Update caniemail database
 
 ### Fix
-- Include SMTPUTF8 capability in SMTP EHLO response ([#496](https://github.com/axllent/mailpit/issues/496))
+- Include SMTPUTF8 capability in SMTP EHLO response ([#496](https://github.com/axllent/mailsandbox/issues/496))
 
 ### Documentation
 - Switch to git-cliff for changelog generation
-- Add Message ListUnsubscribe to swagger / API documentation ([#494](https://github.com/axllent/mailpit/issues/494))
+- Add Message ListUnsubscribe to swagger / API documentation ([#494](https://github.com/axllent/mailsandbox/issues/494))
 
 
 ## [v1.24.2]
 
 ### Feature
-- Display unread count in app badge ([#485](https://github.com/axllent/mailpit/issues/485))
+- Display unread count in app badge ([#485](https://github.com/axllent/mailsandbox/issues/485))
 
 ### Chore
-- Install script improvements & better error handling ([#482](https://github.com/axllent/mailpit/issues/482))
+- Install script improvements & better error handling ([#482](https://github.com/axllent/mailsandbox/issues/482))
 - Update Go dependencies
 - Update node dependencies
 - Update caniemail database
@@ -197,11 +197,11 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.24.1]
 
 ### Feature
-- Add ability to mark all search results as read ([#476](https://github.com/axllent/mailpit/issues/476))
+- Add ability to mark all search results as read ([#476](https://github.com/axllent/mailsandbox/issues/476))
 
 ### Chore
 - Bump node version to 22 for binary releases
-- Improve error message for From header parsing failure ([#477](https://github.com/axllent/mailpit/issues/477))
+- Improve error message for From header parsing failure ([#477](https://github.com/axllent/mailsandbox/issues/477))
 - Update Go dependencies
 - Update node dependencies
 
@@ -209,7 +209,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.24.0]
 
 ### Feature
-- Add TLS relay support and refactor relay function ([#471](https://github.com/axllent/mailpit/issues/471))
+- Add TLS relay support and refactor relay function ([#471](https://github.com/axllent/mailsandbox/issues/471))
 - Add TLS forwarding support and refactor forwarding function
 
 ### Chore
@@ -224,7 +224,7 @@ Notable changes to Mailpit will be documented in this file.
 ### Chore
 - Update node dependencies
 - Use `Message-ID` header instead of `Message-Id` when generating new IDs (RFC 5322)
-- Improve inline HTML Check style detection ([#467](https://github.com/axllent/mailpit/issues/467))
+- Improve inline HTML Check style detection ([#467](https://github.com/axllent/mailsandbox/issues/467))
 - Update Go dependencies
 
 ### Test
@@ -239,27 +239,27 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- Allow searching messages using only Cyrillic characters ([#450](https://github.com/axllent/mailpit/issues/450))
-- Prevent cropping bottom of label characters in web UI ([#457](https://github.com/axllent/mailpit/issues/457))
+- Allow searching messages using only Cyrillic characters ([#450](https://github.com/axllent/mailsandbox/issues/450))
+- Prevent cropping bottom of label characters in web UI ([#457](https://github.com/axllent/mailsandbox/issues/457))
 
 
 ## [v1.23.0]
 
 ### Feature
-- Add configuration to set message compression level in db (0-3) ([#447](https://github.com/axllent/mailpit/issues/447) & [#448](https://github.com/axllent/mailpit/issues/448))
-- Add configuration to explicitly disable HTTP compression in web UI/API ([#448](https://github.com/axllent/mailpit/issues/448))
+- Add configuration to set message compression level in db (0-3) ([#447](https://github.com/axllent/mailsandbox/issues/447) & [#448](https://github.com/axllent/mailsandbox/issues/448))
+- Add configuration to explicitly disable HTTP compression in web UI/API ([#448](https://github.com/axllent/mailsandbox/issues/448))
 - Add configuration to disable SQLite WAL mode for NFS compatibility
 
 ### Chore
-- Avoid shell in Docker health check ([#444](https://github.com/axllent/mailpit/issues/444))
-- Handle BLOB storage for default database differently to rqlite to reduce memory overhead ([#447](https://github.com/axllent/mailpit/issues/447))
-- Optimize ZSTD encoder for fastest compression of messages ([#447](https://github.com/axllent/mailpit/issues/447))
+- Avoid shell in Docker health check ([#444](https://github.com/axllent/mailsandbox/issues/444))
+- Handle BLOB storage for default database differently to rqlite to reduce memory overhead ([#447](https://github.com/axllent/mailsandbox/issues/447))
+- Optimize ZSTD encoder for fastest compression of messages ([#447](https://github.com/axllent/mailsandbox/issues/447))
 - Minor speed & memory improvements when storing messages
 - Update Go dependencies
 - Update node dependencies
 
 ### Fix
-- Display the correct STARTTLS or TLS runtime option on startup ([#446](https://github.com/axllent/mailpit/issues/446))
+- Display the correct STARTTLS or TLS runtime option on startup ([#446](https://github.com/axllent/mailsandbox/issues/446))
 
 ### Test
 - Add tests for message compression levels
@@ -268,17 +268,17 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.22.3]
 
 ### Feature
-- Add dump feature to export all raw messages to a local directory ([#443](https://github.com/axllent/mailpit/issues/443))
+- Add dump feature to export all raw messages to a local directory ([#443](https://github.com/axllent/mailsandbox/issues/443))
 
 ### Chore
-- Specify Docker health check start period and interval ([#439](https://github.com/axllent/mailpit/issues/439))
+- Specify Docker health check start period and interval ([#439](https://github.com/axllent/mailsandbox/issues/439))
 - Update Go dependencies
 - Update node dependencies
 
 ### Fix
-- Replace TrimLeft with TrimPrefix for webroot path handling ([#441](https://github.com/axllent/mailpit/issues/441))
+- Replace TrimLeft with TrimPrefix for webroot path handling ([#441](https://github.com/axllent/mailsandbox/issues/441))
 - Include font/woff content type to embedded controller
-- Update Swagger JSON to prevent overflow ([#442](https://github.com/axllent/mailpit/issues/442))
+- Update Swagger JSON to prevent overflow ([#442](https://github.com/axllent/mailsandbox/issues/442))
 - Correctly detect maximum SMTP recipient limits, add test
 
 
@@ -291,19 +291,19 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies / esbuild
 
 ### Fix
-- Remove recursive HTML regeneration in embedded HTML view ([#434](https://github.com/axllent/mailpit/issues/434))
-- Add missing "latest" route to message attachment API endpoint ([#437](https://github.com/axllent/mailpit/issues/437))
+- Remove recursive HTML regeneration in embedded HTML view ([#434](https://github.com/axllent/mailsandbox/issues/434))
+- Add missing "latest" route to message attachment API endpoint ([#437](https://github.com/axllent/mailsandbox/issues/437))
 
 
 ## [v1.22.1]
 
 ### Feature
-- Add optional UI setting to skip "Delete all" & "Mark all read" confirmation dialogs([#428](https://github.com/axllent/mailpit/issues/428))
-- Add optional query parameter for HTML message iframe embedding ([#434](https://github.com/axllent/mailpit/issues/434))
+- Add optional UI setting to skip "Delete all" & "Mark all read" confirmation dialogs([#428](https://github.com/axllent/mailsandbox/issues/428))
+- Add optional query parameter for HTML message iframe embedding ([#434](https://github.com/axllent/mailsandbox/issues/434))
 
 ### Chore
-- Bump actions/stale from 9.0.0 to 9.1.0 ([#432](https://github.com/axllent/mailpit/issues/432))
-- Add API CORS policy to HTML preview routes ([#434](https://github.com/axllent/mailpit/issues/434))
+- Bump actions/stale from 9.0.0 to 9.1.0 ([#432](https://github.com/axllent/mailsandbox/issues/432))
+- Add API CORS policy to HTML preview routes ([#434](https://github.com/axllent/mailsandbox/issues/434))
 - Update Go dependencies
 - Update node dependencies
 
@@ -311,9 +311,9 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.22.0]
 
 ### Feature
-- Add Chaos functionality to test integration handling of SMTP error responses ([#402](https://github.com/axllent/mailpit/issues/402), [#110](https://github.com/axllent/mailpit/issues/110), [#144](https://github.com/axllent/mailpit/issues/144) & [#268](https://github.com/axllent/mailpit/issues/268))
-- Option to override the From email address in SMTP relay configuration ([#414](https://github.com/axllent/mailpit/issues/414))
-- SMTP auto-forwarding option ([#414](https://github.com/axllent/mailpit/issues/414))
+- Add Chaos functionality to test integration handling of SMTP error responses ([#402](https://github.com/axllent/mailsandbox/issues/402), [#110](https://github.com/axllent/mailsandbox/issues/110), [#144](https://github.com/axllent/mailsandbox/issues/144) & [#268](https://github.com/axllent/mailsandbox/issues/268))
+- Option to override the From email address in SMTP relay configuration ([#414](https://github.com/axllent/mailsandbox/issues/414))
+- SMTP auto-forwarding option ([#414](https://github.com/axllent/mailsandbox/issues/414))
 
 ### Chore
 - Update Go dependencies
@@ -321,7 +321,7 @@ Notable changes to Mailpit will be documented in this file.
 
 ### Fix
 - Correct date formatting in TestMakeHeaders
-- Update command `npm run update-caniemail` save path ([#422](https://github.com/axllent/mailpit/issues/422))
+- Update command `npm run update-caniemail` save path ([#422](https://github.com/axllent/mailsandbox/issues/422))
 
 
 ## [v1.21.8]
@@ -331,23 +331,23 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- Remove unused FOREIGN KEY REFERENCES in message_tags table ([#374](https://github.com/axllent/mailpit/issues/374))
+- Remove unused FOREIGN KEY REFERENCES in message_tags table ([#374](https://github.com/axllent/mailsandbox/issues/374))
 
 
 ## [v1.21.7]
 
 ### Chore
-- Display "From" details in message sidebar (desktop) ([#403](https://github.com/axllent/mailpit/issues/403))
+- Display "From" details in message sidebar (desktop) ([#403](https://github.com/axllent/mailsandbox/issues/403))
 - Display "To" details in mobile messages list
-- Stricter SMTP 'MAIL FROM' & 'RCPT TO' handling ([#409](https://github.com/axllent/mailpit/issues/409))
+- Stricter SMTP 'MAIL FROM' & 'RCPT TO' handling ([#409](https://github.com/axllent/mailsandbox/issues/409))
 - Move smtpd & pop3 modules to internal
 - Bump Go version for automated testing
 - Update Go dependencies
 - Update node dependencies
 
 ### Fix
-- Prevent splitting multi-byte characters in message snippets ([#404](https://github.com/axllent/mailpit/issues/404))
-- Ignore unsupported optional SMTP 'MAIL FROM' parameters ([#407](https://github.com/axllent/mailpit/issues/407))
+- Prevent splitting multi-byte characters in message snippets ([#404](https://github.com/axllent/mailsandbox/issues/404))
+- Ignore unsupported optional SMTP 'MAIL FROM' parameters ([#407](https://github.com/axllent/mailsandbox/issues/407))
 
 ### Test
 - Add smtpd tests
@@ -356,8 +356,8 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.21.6]
 
 ### Feature
-- Add support for sending inline attachments via HTTP API ([#399](https://github.com/axllent/mailpit/issues/399))
-- Include Mailpit label (if set) in webhook HTTP header ([#400](https://github.com/axllent/mailpit/issues/400))
+- Add support for sending inline attachments via HTTP API ([#399](https://github.com/axllent/mailsandbox/issues/399))
+- Include MailSandbox label (if set) in webhook HTTP header ([#400](https://github.com/axllent/mailsandbox/issues/400))
 
 ### Chore
 - Update Go dependencies
@@ -365,13 +365,13 @@ Notable changes to Mailpit will be documented in this file.
 - Update caniemail database
 
 ### Fix
-- Message view not updating when deleting messages from search ([#395](https://github.com/axllent/mailpit/issues/395))
+- Message view not updating when deleting messages from search ([#395](https://github.com/axllent/mailsandbox/issues/395))
 
 
 ## [v1.21.5]
 
 ### Chore
-- Make symlink detection more specific to contain "sendmail" in the name ([#391](https://github.com/axllent/mailpit/issues/391))
+- Make symlink detection more specific to contain "sendmail" in the name ([#391](https://github.com/axllent/mailsandbox/issues/391))
 - Update Go dependencies
 - Update node dependencies
 - Update caniemail database
@@ -380,7 +380,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.21.4]
 
 ### Bugfix
-- Fix external CSS stylesheet loading in HTML preview ([#388](https://github.com/axllent/mailpit/issues/388))
+- Fix external CSS stylesheet loading in HTML preview ([#388](https://github.com/axllent/mailsandbox/issues/388))
 
 
 ## [v1.21.3]
@@ -397,7 +397,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.21.2]
 
 ### Feature
-- Add additional ignored flags to sendmail ([#384](https://github.com/axllent/mailpit/issues/384))
+- Add additional ignored flags to sendmail ([#384](https://github.com/axllent/mailsandbox/issues/384))
 
 ### Chore
 - Update node dependencies
@@ -405,7 +405,7 @@ Notable changes to Mailpit will be documented in this file.
 - Remove legacy Tags column from message DB table
 
 ### Fix
-- Fix browser notification request on Edge ([#89](https://github.com/axllent/mailpit/issues/89))
+- Fix browser notification request on Edge ([#89](https://github.com/axllent/mailsandbox/issues/89))
 
 
 ## [v1.21.1]
@@ -415,17 +415,17 @@ Notable changes to Mailpit will be documented in this file.
 - Add ability to search by size smaller or larger than a value (eg: `larger:1M` / `smaller:2.5M`)
 
 ### Chore
-- Separate attachments and inline images in download nav and badges ([#379](https://github.com/axllent/mailpit/issues/379))
+- Separate attachments and inline images in download nav and badges ([#379](https://github.com/axllent/mailsandbox/issues/379))
 - Update Go dependencies
 
 
 ## [v1.21.0]
 
 ### Feature
-- Experimental Unix socket support for HTTPD & SMTPD ([#373](https://github.com/axllent/mailpit/issues/373))
+- Experimental Unix socket support for HTTPD & SMTPD ([#373](https://github.com/axllent/mailsandbox/issues/373))
 
 ### Fix
-- Allow multiple item selection on macOS with Cmd-click  ([#378](https://github.com/axllent/mailpit/issues/378))
+- Allow multiple item selection on macOS with Cmd-click  ([#378](https://github.com/axllent/mailsandbox/issues/378))
 
 
 ## [v1.20.7]
@@ -434,7 +434,7 @@ Notable changes to Mailpit will be documented in this file.
 - Update caniemail database
 
 ### Fix
-- SQL error deleting a tag while using tenant-id ([#374](https://github.com/axllent/mailpit/issues/374))
+- SQL error deleting a tag while using tenant-id ([#374](https://github.com/axllent/mailsandbox/issues/374))
 
 ### Test
 - Add tenantIDs to tests
@@ -457,11 +457,11 @@ Notable changes to Mailpit will be documented in this file.
 ### Chore
 - Improve link detection in the HTML preview
 - Improve tag detection in UI
-- Use consistent margins for Mailpit label if set
+- Use consistent margins for MailSandbox label if set
 - Update node dependencies
 
 ### Fix
-- Use correct parameter order in SpamAssassin socket detection ([#364](https://github.com/axllent/mailpit/issues/364))
+- Use correct parameter order in SpamAssassin socket detection ([#364](https://github.com/axllent/mailsandbox/issues/364))
 
 
 ## [v1.20.4]
@@ -472,7 +472,7 @@ Notable changes to Mailpit will be documented in this file.
 - Update Go dependencies
 
 ### Fix
-- Relax URL detection in link check tool ([#357](https://github.com/axllent/mailpit/issues/357))
+- Relax URL detection in link check tool ([#357](https://github.com/axllent/mailsandbox/issues/357))
 
 
 ## [v1.20.3]
@@ -484,16 +484,16 @@ Notable changes to Mailpit will be documented in this file.
 - Update caniemail database
 
 ### Fix
-- Disable automatic HTML/Text character detection when charset is provided ([#348](https://github.com/axllent/mailpit/issues/348))
+- Disable automatic HTML/Text character detection when charset is provided ([#348](https://github.com/axllent/mailsandbox/issues/348))
 
 
 ## [v1.20.2]
 
 ### Feature
-- Web UI notifications of smtpd & POP3 errors ([#347](https://github.com/axllent/mailpit/issues/347))
+- Web UI notifications of smtpd & POP3 errors ([#347](https://github.com/axllent/mailsandbox/issues/347))
 
 ### Chore
-- Add smtpd server logging in the CLI ([#347](https://github.com/axllent/mailpit/issues/347))
+- Add smtpd server logging in the CLI ([#347](https://github.com/axllent/mailsandbox/issues/347))
 - Add debug database storage logging
 - Update node dependencies
 - Update Go dependencies
@@ -502,19 +502,19 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.20.1]
 
 ### Chore
-- Show icon attachment in new side navigation message listing ([#345](https://github.com/axllent/mailpit/issues/345))
-- Live load up to 100 new messages in sidebar ([#336](https://github.com/axllent/mailpit/issues/336))
+- Show icon attachment in new side navigation message listing ([#345](https://github.com/axllent/mailsandbox/issues/345))
+- Live load up to 100 new messages in sidebar ([#336](https://github.com/axllent/mailsandbox/issues/336))
 - Shift inbox pagination to inbox component
 
 ### Fix
-- Correctly decode X-Tags message headers (RFC 2047) ([#344](https://github.com/axllent/mailpit/issues/344))
+- Correctly decode X-Tags message headers (RFC 2047) ([#344](https://github.com/axllent/mailsandbox/issues/344))
 
 
 ## [v1.20.0]
 
 ### Feature
-- List messages in side nav when viewing message for easy navigation ([#336](https://github.com/axllent/mailpit/issues/336))
-- Add option to control message retention by age ([#338](https://github.com/axllent/mailpit/issues/338))
+- List messages in side nav when viewing message for easy navigation ([#336](https://github.com/axllent/mailsandbox/issues/336))
+- Add option to control message retention by age ([#338](https://github.com/axllent/mailsandbox/issues/338))
 
 ### Chore
 - Make internal tagging methods private
@@ -545,17 +545,17 @@ Notable changes to Mailpit will be documented in this file.
 - Update Go dependencies
 
 ### Fix
-- Update Inbox "Delete All" count when new messages are detected ([#334](https://github.com/axllent/mailpit/issues/334))
+- Update Inbox "Delete All" count when new messages are detected ([#334](https://github.com/axllent/mailsandbox/issues/334))
 
 
 ## [v1.19.1]
 
 ### Feature
-- Add optional relay recipient blocklist ([#333](https://github.com/axllent/mailpit/issues/333))
+- Add optional relay recipient blocklist ([#333](https://github.com/axllent/mailsandbox/issues/333))
 
 ### Chore
-- Bump docker/build-push-action from 5 to 6 ([#327](https://github.com/axllent/mailpit/issues/327))
-- Bump esbuild from 0.21.5 to 0.22.0 ([#326](https://github.com/axllent/mailpit/issues/326))
+- Bump docker/build-push-action from 5 to 6 ([#327](https://github.com/axllent/mailsandbox/issues/327))
+- Bump esbuild from 0.21.5 to 0.22.0 ([#326](https://github.com/axllent/mailsandbox/issues/326))
 - Bump esbuild to version 0.23.0
 - Equal column widths in About modal
 - Update Go dependencies
@@ -564,7 +564,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.19.0]
 
 ### Feature
-- Add option to disable auto-tagging for plus-addresses & X-Tags ([#323](https://github.com/axllent/mailpit/issues/323))
+- Add option to disable auto-tagging for plus-addresses & X-Tags ([#323](https://github.com/axllent/mailsandbox/issues/323))
 - Add ability to rename and delete tags globally
 
 ### Chore
@@ -575,10 +575,10 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.18.7]
 
 ### Feature
-- Add optional label to identify Mailpit instance ([#316](https://github.com/axllent/mailpit/issues/316))
+- Add optional label to identify MailSandbox instance ([#316](https://github.com/axllent/mailsandbox/issues/316))
 
 ### Chore
-- Handle websocket errors caused by persistent connection failures ([#319](https://github.com/axllent/mailpit/issues/319))
+- Handle websocket errors caused by persistent connection failures ([#319](https://github.com/axllent/mailsandbox/issues/319))
 - Refactor JavaScript, use arrow functions instead of "self" aliasing
 
 ### Test
@@ -595,14 +595,14 @@ Notable changes to Mailpit will be documented in this file.
 - Update caniemail database
 
 ### Fix
-- POP3 size output to show compatible sizes ([#312](https://github.com/axllent/mailpit/issues/312))
-- POP3 end of file reached error ([#315](https://github.com/axllent/mailpit/issues/315))
+- POP3 size output to show compatible sizes ([#312](https://github.com/axllent/mailsandbox/issues/312))
+- POP3 end of file reached error ([#315](https://github.com/axllent/mailsandbox/issues/315))
 
 
 ## [v1.18.5]
 
 ### Feature
-- Add pagination & limits to URL parameters ([#303](https://github.com/axllent/mailpit/issues/303))
+- Add pagination & limits to URL parameters ([#303](https://github.com/axllent/mailsandbox/issues/303))
 
 ### Chore
 - Update Go dependencies
@@ -612,7 +612,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.18.4]
 
 ### Chore
-- Clone new Docker images to ghcr.io ([#302](https://github.com/axllent/mailpit/issues/302))
+- Clone new Docker images to ghcr.io ([#302](https://github.com/axllent/mailsandbox/issues/302))
 - Update Go dependencies
 - Update node dependencies
 
@@ -620,14 +620,14 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.18.3]
 
 ### Feature
-- ICalendar (ICS) viewer ([#298](https://github.com/axllent/mailpit/issues/298))
+- ICalendar (ICS) viewer ([#298](https://github.com/axllent/mailsandbox/issues/298))
 
 ### Chore
 - Update node dependencies
 - Update Go dependencies
 
 ### Fix
-- Add dot stuffing for POP3 ([#300](https://github.com/axllent/mailpit/issues/300))
+- Add dot stuffing for POP3 ([#300](https://github.com/axllent/mailsandbox/issues/300))
 
 
 ## [v1.18.2]
@@ -636,13 +636,13 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- Replace invalid Windows username characters in sendmail ([#294](https://github.com/axllent/mailpit/issues/294))
+- Replace invalid Windows username characters in sendmail ([#294](https://github.com/axllent/mailsandbox/issues/294))
 
 
 ## [v1.18.1]
 
 ### Feature
-- Return queued Message ID in SMTP response ([#293](https://github.com/axllent/mailpit/issues/293))
+- Return queued Message ID in SMTP response ([#293](https://github.com/axllent/mailsandbox/issues/293))
 
 ### Chore
 - Simplify JSON HTTP responses
@@ -656,7 +656,7 @@ Notable changes to Mailpit will be documented in this file.
 - New search filter prefix `addressed:` includes From, To, Cc, Bcc & Reply-To
 - Search filter support for auto-tagging
 - Set tagging filters via a config file
-- API endpoint for sending ([#278](https://github.com/axllent/mailpit/issues/278))
+- API endpoint for sending ([#278](https://github.com/axllent/mailsandbox/issues/278))
 
 ### Chore
 - Auto-update relative received message times
@@ -672,19 +672,19 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.17.1]
 
 ### Chore
-- Clearer error messages for read/write permission failures ([#281](https://github.com/axllent/mailpit/issues/281))
+- Clearer error messages for read/write permission failures ([#281](https://github.com/axllent/mailsandbox/issues/281))
 - Update Go dependencies
 - Update node dependencies
 
 ### Fix
-- Prevent error when two identical tags are added at the exact same time ([#283](https://github.com/axllent/mailpit/issues/283))
+- Prevent error when two identical tags are added at the exact same time ([#283](https://github.com/axllent/mailsandbox/issues/283))
 
 
 ## [v1.17.0]
 
 ### Feature
 - Add UI settings screen
-- Option to auto relay for matching recipient expression only ([#274](https://github.com/axllent/mailpit/issues/274))
+- Option to auto relay for matching recipient expression only ([#274](https://github.com/axllent/mailsandbox/issues/274))
 
 ### Chore
 - Remove deprecated --disable-html-check option
@@ -697,15 +697,15 @@ Notable changes to Mailpit will be documented in this file.
 - Update caniemail database
 
 ### Fix
-- Add delay to close database on fatal exit ([#280](https://github.com/axllent/mailpit/issues/280))
+- Add delay to close database on fatal exit ([#280](https://github.com/axllent/mailsandbox/issues/280))
 
 
 ## [v1.16.0]
 
 ### Feature
-- Option to use rqlite database storage ([#254](https://github.com/axllent/mailpit/issues/254))
-- Add optional tenant ID to isolate data in shared databases ([#254](https://github.com/axllent/mailpit/issues/254))
-- Search support for before: and after: dates ([#252](https://github.com/axllent/mailpit/issues/252))
+- Option to use rqlite database storage ([#254](https://github.com/axllent/mailsandbox/issues/254))
+- Add optional tenant ID to isolate data in shared databases ([#254](https://github.com/axllent/mailsandbox/issues/254))
+- Search support for before: and after: dates ([#252](https://github.com/axllent/mailsandbox/issues/252))
 
 ### Chore
 - Switch database flag/env to `--database` / `MP_DATABASE`
@@ -716,23 +716,23 @@ Notable changes to Mailpit will be documented in this file.
 ### Fix
 - Extract plus addresses from email addresses only, not names
 - Prevent conditional JS error when global mailbox tag list is modified via auto/plus-address tagging while viewing a message
-- Remove duplicated authentication check ([#276](https://github.com/axllent/mailpit/issues/276))
+- Remove duplicated authentication check ([#276](https://github.com/axllent/mailsandbox/issues/276))
 
 
 ## [v1.15.1]
 
 ### Feature
-- Add readyz subcommand for Docker healthcheck ([#270](https://github.com/axllent/mailpit/issues/270))
+- Add readyz subcommand for Docker healthcheck ([#270](https://github.com/axllent/mailsandbox/issues/270))
 
 ### Chore
-- Add labels to Docker image ([#267](https://github.com/axllent/mailpit/issues/267))
+- Add labels to Docker image ([#267](https://github.com/axllent/mailsandbox/issues/267))
 - Code cleanup, remove redundant functionality
 
 
 ## [v1.15.0]
 
 ### Feature
-- Add SMTP TLS option ([#265](https://github.com/axllent/mailpit/issues/265))
+- Add SMTP TLS option ([#265](https://github.com/axllent/mailsandbox/issues/265))
 
 ### Chore
 - Update Go dependencies
@@ -745,7 +745,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.14.4]
 
 ### Feature
-- Allow setting SMTP relay configuration values via environment variables ([#262](https://github.com/axllent/mailpit/issues/262))
+- Allow setting SMTP relay configuration values via environment variables ([#262](https://github.com/axllent/mailsandbox/issues/262))
 
 ### Chore
 - Reorder CLI flags to group by related functionality
@@ -765,16 +765,16 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.14.2]
 
 ### Chore
-- Allow setting of multiple message tags via plus addresses ([#253](https://github.com/axllent/mailpit/issues/253))
+- Allow setting of multiple message tags via plus addresses ([#253](https://github.com/axllent/mailsandbox/issues/253))
 
 ### Fix
-- Prevent runtime error when calculating total messages size of empty table ([#263](https://github.com/axllent/mailpit/issues/263))
+- Prevent runtime error when calculating total messages size of empty table ([#263](https://github.com/axllent/mailsandbox/issues/263))
 
 
 ## [v1.14.1]
 
 ### Feature
-- Set message tags using plus addressing ([#253](https://github.com/axllent/mailpit/issues/253))
+- Set message tags using plus addressing ([#253](https://github.com/axllent/mailsandbox/issues/253))
 - Option to enforce TitleCasing for all newly created tags
 
 ### Chore
@@ -783,13 +783,13 @@ Notable changes to Mailpit will be documented in this file.
 - Tag names now allow `.` and must be a minimum of 1 character
 
 ### Fix
-- Handle null values in Mailpit settings, set DeletedSize=0 if null
+- Handle null values in MailSandbox settings, set DeletedSize=0 if null
 
 
 ## [v1.14.0]
 
 ### Feature
-- Optional POP3 server ([#249](https://github.com/axllent/mailpit/issues/249))
+- Optional POP3 server ([#249](https://github.com/axllent/mailsandbox/issues/249))
 
 ### Chore
 - Better handling of automatic database compression (vacuuming) after deleting messages
@@ -806,7 +806,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.13.3]
 
 ### Feature
-- Add reply-to:<search> search filter ([#247](https://github.com/axllent/mailpit/issues/247))
+- Add reply-to:<search> search filter ([#247](https://github.com/axllent/mailsandbox/issues/247))
 
 ### Chore
 - Update "About" modal layout when new version is available
@@ -821,7 +821,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.13.2]
 
 ### Feature
-- Add option to log output to file ([#246](https://github.com/axllent/mailpit/issues/246))
+- Add option to log output to file ([#246](https://github.com/axllent/mailsandbox/issues/246))
 
 ### Chore
 - Update esbuild
@@ -834,7 +834,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.13.1]
 
 ### Feature
-- Add TLSRequired option for smtpd ([#241](https://github.com/axllent/mailpit/issues/241))
+- Add TLSRequired option for smtpd ([#241](https://github.com/axllent/mailsandbox/issues/241))
 
 ### Chore
 - Only show number of messages ignored statistics if `--ignore-duplicate-ids` is set
@@ -842,15 +842,15 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- Workaround for specific field searches containing unicode characters ([#239](https://github.com/axllent/mailpit/issues/239))
+- Workaround for specific field searches containing unicode characters ([#239](https://github.com/axllent/mailsandbox/issues/239))
 
 
 ## [v1.13.0]
 
 ### Feature
-- Add optional SpamAssassin integration to display scores ([#233](https://github.com/axllent/mailpit/issues/233))
-- Display List-Unsubscribe & List-Unsubscribe-Post header info with syntax validation ([#236](https://github.com/axllent/mailpit/issues/236))
-- Add option to disable SMTP reverse DNS (rDNS) lookup ([#230](https://github.com/axllent/mailpit/issues/230))
+- Add optional SpamAssassin integration to display scores ([#233](https://github.com/axllent/mailsandbox/issues/233))
+- Display List-Unsubscribe & List-Unsubscribe-Post header info with syntax validation ([#236](https://github.com/axllent/mailsandbox/issues/236))
+- Add option to disable SMTP reverse DNS (rDNS) lookup ([#230](https://github.com/axllent/mailsandbox/issues/230))
 
 ### Chore
 - Update node dependencies
@@ -859,18 +859,18 @@ Notable changes to Mailpit will be documented in this file.
 
 ### Fix
 - Sendmail support for `-f 'Name <email@example.com>'` format
-- Display multiple whitespace characters in message subject & recipient names ([#238](https://github.com/axllent/mailpit/issues/238))
+- Display multiple whitespace characters in message subject & recipient names ([#238](https://github.com/axllent/mailsandbox/issues/238))
 
 
 ## [v1.12.1]
 
 ### Feature
-- Add option to only allow SMTP recipients matching a regular expression (disable open-relay behaviour [#219](https://github.com/axllent/mailpit/issues/219))
+- Add option to only allow SMTP recipients matching a regular expression (disable open-relay behaviour [#219](https://github.com/axllent/mailsandbox/issues/219))
 
 ### Chore
 - Standardize error logging & formatting
 - Update node dependencies
-- Automatically refresh connected browsers if Mailpit is upgraded (version change)
+- Automatically refresh connected browsers if MailSandbox is upgraded (version change)
 - Significantly increase database performance using WAL (Write-Ahead-Log)
 
 ### Fix
@@ -898,12 +898,12 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.11.1]
 
 ### Chore
-- Allow multiple tags  to be searched using Ctrl-click ([#216](https://github.com/axllent/mailpit/issues/216))
+- Allow multiple tags  to be searched using Ctrl-click ([#216](https://github.com/axllent/mailsandbox/issues/216))
 - Update Go dependencies
 - Update node dependencies
 
 ### Fix
-- Fix regression to support for search query params to all `/latest` endpoints ([#206](https://github.com/axllent/mailpit/issues/206))
+- Fix regression to support for search query params to all `/latest` endpoints ([#206](https://github.com/axllent/mailsandbox/issues/206))
 
 ### Test
 - Add new `ingest` subcommand to import an email file or maildir folder over SMTP
@@ -912,7 +912,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.11.0]
 
 ### Feature
-- Add configuration option to set maximum SMTP recipients ([#205](https://github.com/axllent/mailpit/issues/205))
+- Add configuration option to set maximum SMTP recipients ([#205](https://github.com/axllent/mailsandbox/issues/205))
 
 ### Chore
 - Update Go dependencies
@@ -931,7 +931,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.10.3]
 
 ### Feature
-- Add @ as valid character for webroot ([#215](https://github.com/axllent/mailpit/issues/215))
+- Add @ as valid character for webroot ([#215](https://github.com/axllent/mailsandbox/issues/215))
 
 ### Chore
 - Update caniemail library & add `hr` element test
@@ -939,7 +939,7 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- New favicon notification badge to fix rendering issues ([#210](https://github.com/axllent/mailpit/issues/210))
+- New favicon notification badge to fix rendering issues ([#210](https://github.com/axllent/mailsandbox/issues/210))
 
 
 ## [v1.10.2]
@@ -958,12 +958,12 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.10.1]
 
 ### Chore
-- Use NextReader() instead of ReadMessage() for websocket reading ([#207](https://github.com/axllent/mailpit/issues/207))
+- Use NextReader() instead of ReadMessage() for websocket reading ([#207](https://github.com/axllent/mailsandbox/issues/207))
 - Update Go dependencies
 - Update node dependencies
 
 ### Fix
-- Prevent JavaScript error if message is missing `From` header ([#209](https://github.com/axllent/mailpit/issues/209))
+- Prevent JavaScript error if message is missing `From` header ([#209](https://github.com/axllent/mailsandbox/issues/209))
 
 ### Documentation
 - Revert BinaryResponse type to string
@@ -972,16 +972,16 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.10.0]
 
 ### Feature
-- Add URL redirect (`/view/latest`) to view latest message in web UI ([#166](https://github.com/axllent/mailpit/issues/166))
-- Option to allow untrusted HTTPS certificates for screenshots & link checking ([#204](https://github.com/axllent/mailpit/issues/204))
-- Support search query params to /latest endpoints ([#206](https://github.com/axllent/mailpit/issues/206))
+- Add URL redirect (`/view/latest`) to view latest message in web UI ([#166](https://github.com/axllent/mailsandbox/issues/166))
+- Option to allow untrusted HTTPS certificates for screenshots & link checking ([#204](https://github.com/axllent/mailsandbox/issues/204))
+- Support search query params to /latest endpoints ([#206](https://github.com/axllent/mailsandbox/issues/206))
 
 ### Chore
 - Update Go dependencies
 - Update node dependencies
 
 ### Fix
-- Correctly close websockets on client disconnect ([#207](https://github.com/axllent/mailpit/issues/207))
+- Correctly close websockets on client disconnect ([#207](https://github.com/axllent/mailsandbox/issues/207))
 
 
 ## [v1.9.10]
@@ -993,7 +993,7 @@ Notable changes to Mailpit will be documented in this file.
 - Update node dependencies
 
 ### Fix
-- Correctly display "About" modal when update check fails (resolves [#199](https://github.com/axllent/mailpit/issues/199))
+- Correctly display "About" modal when update check fails (resolves [#199](https://github.com/axllent/mailsandbox/issues/199))
 
 ### Documentation
 - Update documentation links
@@ -1002,8 +1002,8 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.9.9]
 
 ### Feature
-- Reset message date on release ([#194](https://github.com/axllent/mailpit/issues/194))
-- Set optional webhook for received messages ([#195](https://github.com/axllent/mailpit/issues/195))
+- Reset message date on release ([#194](https://github.com/axllent/mailsandbox/issues/194))
+- Set optional webhook for received messages ([#195](https://github.com/axllent/mailsandbox/issues/195))
 
 ### Chore
 - Move html2text module to internal/html2text
@@ -1015,7 +1015,7 @@ Notable changes to Mailpit will be documented in this file.
 
 ### Chore
 - Replace html2text modules with simplified internal function
-- Replace satori/go.uuid with github.com/google/uuid ([#190](https://github.com/axllent/mailpit/issues/190))
+- Replace satori/go.uuid with github.com/google/uuid ([#190](https://github.com/axllent/mailsandbox/issues/190))
 - Update Go dependencies
 - Update node dependencies
 
@@ -1041,7 +1041,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.9.6]
 
 ### Chore
-- Display message previews on separate line ([#175](https://github.com/axllent/mailpit/issues/175))
+- Display message previews on separate line ([#175](https://github.com/axllent/mailsandbox/issues/175))
 - Update Go dependencies
 - Update node dependencies
 
@@ -1049,7 +1049,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.9.5]
 
 ### Feature
-- Display email previews ([#175](https://github.com/axllent/mailpit/issues/175))
+- Display email previews ([#175](https://github.com/axllent/mailsandbox/issues/175))
 - Add `reindex` subcommand to reindex all messages
 
 ### Fix
@@ -1161,7 +1161,7 @@ Notable changes to Mailpit will be documented in this file.
 - Link check to test message links
 
 ### Chore
-- Set hostname in page meta title to identify Mailpit instance
+- Set hostname in page meta title to identify MailSandbox instance
 - Update Go libs
 
 ### Build
@@ -1176,7 +1176,7 @@ Notable changes to Mailpit will be documented in this file.
 
 ### Fix
 - Exclude <script type="application/json"> from HTML check tests
-- Exclude "sendmail" from recipients list when using `mailpit sendmail <options>`
+- Exclude "sendmail" from recipients list when using `mailsandbox sendmail <options>`
 - Check/set message Reply-To using SMTP FROM
 
 ### Documentation
@@ -1272,7 +1272,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.6.17]
 
 ### Fix
-- Add single dash arguments support to sendmail command ([#123](https://github.com/axllent/mailpit/issues/123))
+- Add single dash arguments support to sendmail command ([#123](https://github.com/axllent/mailsandbox/issues/123))
 
 
 ## [v1.6.16]
@@ -1306,7 +1306,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.6.12]
 
 ### Feature
-- Add Message-Id to MessageSummary ([#116](https://github.com/axllent/mailpit/issues/116))
+- Add Message-Id to MessageSummary ([#116](https://github.com/axllent/mailsandbox/issues/116))
 
 ### Documentation
 - Update swagger field descriptions, add MessageID
@@ -1315,7 +1315,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.6.11]
 
 ### Chore
-- Check for secure context instead of HTTPS ([#114](https://github.com/axllent/mailpit/issues/114))
+- Check for secure context instead of HTTPS ([#114](https://github.com/axllent/mailsandbox/issues/114))
 - Update Go dependencies
 - Update node dependencies
 
@@ -1345,7 +1345,7 @@ Notable changes to Mailpit will be documented in this file.
 
 ### Feature
 - Add `-S` short flag for sendmail `--smtp-addr`
-- Add allowlist to filter recipients before relaying messages ([#109](https://github.com/axllent/mailpit/issues/109))
+- Add allowlist to filter recipients before relaying messages ([#109](https://github.com/axllent/mailsandbox/issues/109))
 
 ### Bugfix
 - Fix Date display when message doesn't contain a Date header
@@ -1425,7 +1425,7 @@ Notable changes to Mailpit will be documented in this file.
 ## [v1.5.5]
 
 ### Feature
-- Update listen regex to allow IPv6 addresses ([#85](https://github.com/axllent/mailpit/issues/85))
+- Update listen regex to allow IPv6 addresses ([#85](https://github.com/axllent/mailsandbox/issues/85))
 
 ### Documentation
 - Add Docker image tag for major/minor version

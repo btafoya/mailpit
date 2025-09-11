@@ -8,7 +8,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/axllent/mailpit/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/logger"
 )
 
 // RemoveMessageHeaders scans a message for headers, if found them removes them.

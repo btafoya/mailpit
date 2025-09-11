@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/axllent/mailpit/config"
+	"github.com/btafoya/mailsandbox/config"
 	"github.com/leporo/sqlf"
 )
 

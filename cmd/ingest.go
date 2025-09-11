@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/axllent/mailpit/internal/logger"
-	sendmail "github.com/axllent/mailpit/sendmail/cmd"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	sendmail "github.com/btafoya/mailsandbox/sendmail/cmd"
 	"github.com/spf13/cobra"
 )
 

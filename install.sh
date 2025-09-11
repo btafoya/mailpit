@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script will install the latest release of Mailpit.
+# This script will install the latest release of MailSandbox.
 
 # Check dependencies is installed
 for cmd in curl tar; do
@@ -40,7 +40,7 @@ aarch64 | arm64)
     ;;
 esac
 
-GH_REPO="axllent/mailpit"
+GH_REPO="axllent/mailsandbox"
 INSTALL_PATH="${INSTALL_PATH:-/usr/local/bin}"
 TIMEOUT=90
 # This is used to authenticate with the GitHub API. (Fix the public rate limiting issue)
@@ -106,7 +106,7 @@ fi
 case "$VERSION" in
 v[0-9][0-9\.]*) ;;
 *)
-    echo "There was an error trying to check what is the latest version of Mailpit."
+    echo "There was an error trying to check what is the latest version of MailSandbox."
     echo "Please try again later."
     exit $EXIT_CODE
     ;;
@@ -120,11 +120,11 @@ if [ -z "$TEMP_DIR" ] || [ ! -d "$TEMP_DIR" ]; then
     exit $EXIT_CODE
 fi
 
-GH_REPO_BIN="mailpit-${OS}-${OS_ARCH}.tar.gz"
+GH_REPO_BIN="mailsandbox-${OS}-${OS_ARCH}.tar.gz"
 if [ "$INSTALL_PATH" = "/" ]; then
-    INSTALL_BIN_PATH="/mailpit"
+    INSTALL_BIN_PATH="/mailsandbox"
 else
-    INSTALL_BIN_PATH="${INSTALL_PATH}/mailpit"
+    INSTALL_BIN_PATH="${INSTALL_PATH}/mailsandbox"
 fi
 cd "$TEMP_DIR" || EXIT_CODE=$?
 if [ $EXIT_CODE -eq 0 ]; then
@@ -166,10 +166,10 @@ if [ $EXIT_CODE -eq 0 ]; then
     fi
 
     if [ $EXIT_CODE -eq 0 ]; then
-        cp mailpit "$INSTALL_BIN_PATH"
+        cp mailsandbox "$INSTALL_BIN_PATH"
         EXIT_CODE=$?
         if [ $EXIT_CODE -ne 0 ]; then
-            echo "ERROR: Copying mailpit to \"${INSTALL_PATH}\" directory."
+            echo "ERROR: Copying mailsandbox to \"${INSTALL_PATH}\" directory."
         fi
     fi
 
@@ -206,7 +206,7 @@ fi
 rm -rf "$TEMP_DIR"
 # Check the EXIT_CODE variable, and print the success or error message.
 if [ $EXIT_CODE -ne 0 ]; then
-    echo "There was an error installing Mailpit."
+    echo "There was an error installing MailSandbox."
     exit $EXIT_CODE
 fi
 

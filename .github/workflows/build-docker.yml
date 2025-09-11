@@ -45,9 +45,9 @@ jobs:
           "VERSION=${{ github.ref_name }}"
         push: true
         tags: |
-          axllent/mailpit:latest
-          axllent/mailpit:${{ github.ref_name }}
-          axllent/mailpit:v${{ steps.semver_parser.outputs.major }}.${{ steps.semver_parser.outputs.minor }}
+          axllent/mailsandbox:latest
+          axllent/mailsandbox:${{ github.ref_name }}
+          axllent/mailsandbox:v${{ steps.semver_parser.outputs.major }}.${{ steps.semver_parser.outputs.minor }}
           ghcr.io/${{ github.repository }}:${{ github.ref_name }}
           ghcr.io/${{ github.repository }}:v${{ steps.semver_parser.outputs.major }}.${{ steps.semver_parser.outputs.minor }}
           ghcr.io/${{ github.repository }}:latest

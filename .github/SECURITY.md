@@ -9,7 +9,7 @@ your findings can be investigated, and if confirmed, fixed and released in a tim
 
 Your report should include:
 
-- Mailpit version
+- MailSandbox version
 - A vulnerability description
 - Reproduction steps (if applicable)
 - Any other details you think are likely to be important

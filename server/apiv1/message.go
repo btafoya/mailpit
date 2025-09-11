@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/mail"
 
-	"github.com/axllent/mailpit/internal/storage"
+	"github.com/btafoya/mailsandbox/internal/storage"
 	"github.com/gorilla/mux"
 )
 

@@ -12,12 +12,12 @@ import (
 	"strings"
 
 	"github.com/axllent/ghru/v2"
-	"github.com/axllent/mailpit/internal/auth"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/smtpd/chaos"
-	"github.com/axllent/mailpit/internal/snakeoil"
-	"github.com/axllent/mailpit/internal/spamassassin"
-	"github.com/axllent/mailpit/internal/tools"
+	"github.com/btafoya/mailsandbox/internal/auth"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/smtpd/chaos"
+	"github.com/btafoya/mailsandbox/internal/snakeoil"
+	"github.com/btafoya/mailsandbox/internal/spamassassin"
+	"github.com/btafoya/mailsandbox/internal/tools"
 )
 
 var (
@@ -172,7 +172,7 @@ var (
 	SMTPForwardConfig SMTPForwardConfigStruct
 
 	// SMTPStrictRFCHeaders will return an error if the email headers contain <CR><CR><LF> (\r\r\n)
-	// @see https://github.com/axllent/mailpit/issues/87 & https://github.com/axllent/mailpit/issues/153
+	// @see https://github.com/btafoya/mailsandbox/issues/87 & https://github.com/btafoya/mailsandbox/issues/153
 	SMTPStrictRFCHeaders bool
 
 	// SMTPAllowedRecipients if set, will only accept recipients matching this regular expression

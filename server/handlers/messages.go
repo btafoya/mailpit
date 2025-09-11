@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/storage"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/storage"
 )
 
 // RedirectToLatestMessage (method: GET) redirects the web UI to the latest message

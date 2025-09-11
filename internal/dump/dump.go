@@ -11,11 +11,11 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/storage"
-	"github.com/axllent/mailpit/internal/tools"
-	"github.com/axllent/mailpit/server/apiv1"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/storage"
+	"github.com/btafoya/mailsandbox/internal/tools"
+	"github.com/btafoya/mailsandbox/server/apiv1"
 )
 
 var (

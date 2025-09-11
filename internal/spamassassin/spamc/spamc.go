@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/axllent/mailpit/internal/tools"
+	"github.com/btafoya/mailsandbox/internal/tools"
 )
 
 // ProtoVersion is the protocol version

@@ -3,7 +3,7 @@ package htmlcheck
 import (
 	"sort"
 
-	"github.com/axllent/mailpit/internal/tools"
+	"github.com/btafoya/mailsandbox/internal/tools"
 )
 
 // Platforms returns all platforms with their respective email clients

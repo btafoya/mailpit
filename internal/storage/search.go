@@ -11,9 +11,9 @@ import (
 	"time"
 
 	"github.com/araddon/dateparse"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/tools"
-	"github.com/axllent/mailpit/server/websockets"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/tools"
+	"github.com/btafoya/mailsandbox/server/websockets"
 	"github.com/leporo/sqlf"
 )
 

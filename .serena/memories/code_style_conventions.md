@@ -1,4 +1,4 @@
-# Mailpit Code Style and Conventions
+# MailSandbox Code Style and Conventions
 
 ## Go Code Style
 - Use standard Go formatting with `gofmt -s`

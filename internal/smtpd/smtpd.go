@@ -23,7 +23,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/axllent/mailpit/internal/smtpd/chaos"
+	"github.com/btafoya/mailsandbox/internal/smtpd/chaos"
 )
 
 var (

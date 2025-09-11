@@ -6,10 +6,10 @@ import (
 	"net"
 	"strings"
 
-	"github.com/axllent/mailpit/internal/auth"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/storage"
-	"github.com/axllent/mailpit/server/websockets"
+	"github.com/btafoya/mailsandbox/internal/auth"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/storage"
+	"github.com/btafoya/mailsandbox/server/websockets"
 )
 
 func authUser(username, password string) bool {

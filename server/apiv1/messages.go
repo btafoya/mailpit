@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/axllent/mailpit/internal/storage"
-	"github.com/axllent/mailpit/internal/tools"
+	"github.com/btafoya/mailsandbox/internal/storage"
+	"github.com/btafoya/mailsandbox/internal/tools"
 )
 
 // MessagesSummary is a summary of a list of messages

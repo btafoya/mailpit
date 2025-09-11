@@ -11,9 +11,9 @@ import (
 	"net/mail"
 	"strings"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/smtpd"
-	"github.com/axllent/mailpit/internal/tools"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/smtpd"
+	"github.com/btafoya/mailsandbox/internal/tools"
 	"github.com/jhillyerd/enmime/v2"
 )
 

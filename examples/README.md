@@ -1,12 +1,12 @@
-# Mailpit Integration Examples
+# MailSandbox Integration Examples
 
-This directory contains examples of how to integrate Mailpit with various development environments and tools.
+This directory contains examples of how to integrate MailSandbox with various development environments and tools.
 
 ## VS Code with MCP
 
 ### Setup Instructions
 
-1. **Install Mailpit** following the [installation guide](../README.md#installation)
+1. **Install MailSandbox** following the [installation guide](../README.md#installation)
 
 2. **Configure MCP Server** - Add the configuration to your Claude Code settings:
 
@@ -15,9 +15,9 @@ This directory contains examples of how to integrate Mailpit with various develo
    - **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
    - **Linux**: `~/.config/Claude/claude_desktop_config.json`
 
-3. **Create Mailpit Directory** in your workspace:
+3. **Create MailSandbox Directory** in your workspace:
    ```bash
-   mkdir -p .mailpit
+   mkdir -p .mailsandbox
    ```
 
 4. **Start Development** - The MCP server will automatically start when Claude Code needs to access it
@@ -25,21 +25,21 @@ This directory contains examples of how to integrate Mailpit with various develo
 ### Available Configurations
 
 #### Basic MCP Only
-Use the `mailpit` configuration for basic message reading and analysis:
+Use the `mailsandbox` configuration for basic message reading and analysis:
 ```json
 {
   "mcpServers": {
-    "mailpit": { /* ... basic config ... */ }
+    "mailsandbox": { /* ... basic config ... */ }
   }
 }
 ```
 
 #### MCP + Postmark API  
-Use the `mailpit-with-postmark` configuration when you need both features:
+Use the `mailsandbox-with-postmark` configuration when you need both features:
 ```json
 {
   "mcpServers": {
-    "mailpit-with-postmark": { /* ... full config ... */ }
+    "mailsandbox-with-postmark": { /* ... full config ... */ }
   }
 }
 ```
@@ -63,9 +63,9 @@ Add these scripts to your `package.json`:
 ```json
 {
   "scripts": {
-    "mailpit:start": "mailpit --postmark-api --postmark-accept-any",
-    "mailpit:dev": "mailpit --postmark-api --postmark-token dev-token-123 --mcp-server",
-    "test:mail": "npm run mailpit:start & npm run test && pkill mailpit"
+    "mailsandbox:start": "mailsandbox --postmark-api --postmark-accept-any",
+    "mailsandbox:dev": "mailsandbox --postmark-api --postmark-token dev-token-123 --mcp-server",
+    "test:mail": "npm run mailsandbox:start & npm run test && pkill mailsandbox"
   }
 }
 ```
@@ -89,8 +89,8 @@ DATABASE_URL=postgresql://localhost/myapp_test
 const { execSync } = require('child_process');
 
 beforeAll(async () => {
-  // Start Mailpit for testing
-  execSync('mailpit --postmark-api --postmark-accept-any --database /tmp/test-mailpit.db &');
+  // Start MailSandbox for testing
+  execSync('mailsandbox --postmark-api --postmark-accept-any --database /tmp/test-mailsandbox.db &');
   
   // Wait for startup
   await new Promise(resolve => setTimeout(resolve, 2000));
@@ -98,7 +98,7 @@ beforeAll(async () => {
 
 afterAll(() => {
   // Clean up
-  execSync('pkill mailpit');
+  execSync('pkill mailsandbox');
 });
 ```
 
@@ -118,7 +118,7 @@ postmarker>=0.15.0  # For Postmark API client
 EMAIL_BACKEND = 'postmarker.django.EmailBackend'
 POSTMARK = {
     'TOKEN': 'dev-token-123',
-    'API_URL': 'http://localhost:8025',  # Point to Mailpit
+    'API_URL': 'http://localhost:8025',  # Point to MailSandbox
 }
 ```
 
@@ -131,13 +131,13 @@ import pytest
 import time
 
 @pytest.fixture(scope="session", autouse=True)
-def mailpit_server():
-    """Start Mailpit server for testing"""
+def mailsandbox_server():
+    """Start MailSandbox server for testing"""
     process = subprocess.Popen([
-        'mailpit',
+        'mailsandbox',
         '--postmark-api',
         '--postmark-accept-any',
-        '--database', '/tmp/pytest-mailpit.db',
+        '--database', '/tmp/pytest-mailsandbox.db',
         '--listen', '127.0.0.1:8025'
     ])
     
@@ -164,21 +164,21 @@ def mailpit_server():
 ### PHPUnit Configuration
 
 ```php
-// tests/MailpitTestCase.php
+// tests/MailSandboxTestCase.php
 use Postmark\PostmarkClient;
 
-abstract class MailpitTestCase extends TestCase
+abstract class MailSandboxTestCase extends TestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
         
-        // Configure Postmark client for Mailpit
+        // Configure Postmark client for MailSandbox
         $this->postmarkClient = new PostmarkClient('dev-token-123');
         $this->postmarkClient->setApiUrl('http://localhost:8025');
     }
     
-    protected function getMailpitMessages(): array
+    protected function getMailSandboxMessages(): array
     {
         $response = file_get_contents('http://localhost:8025/api/v1/messages');
         return json_decode($response, true)['messages'] ?? [];
@@ -195,39 +195,39 @@ abstract class MailpitTestCase extends TestCase
 Use the provided Docker Compose configuration:
 
 ```bash
-# Start Mailpit with MCP stdio support
+# Start MailSandbox with MCP stdio support
 docker-compose -f examples/docker-compose.mcp.yml up
 ```
 
 **Claude Code Configuration**:
 ```bash
 # Add Docker Compose-based MCP server
-claude mcp add mailpit-compose -- docker-compose -f examples/docker-compose.mcp.yml exec -T mailpit mailpit --mcp-server --mcp-transport stdio --database /data/mailpit.db
+claude mcp add mailsandbox-compose -- docker-compose -f examples/docker-compose.mcp.yml exec -T mailsandbox mailsandbox --mcp-server --mcp-transport stdio --database /data/mailsandbox.db
 ```
 
 #### Option 2: Docker Exec with stdio
 
 **Start Container**:
 ```bash
-docker run -d --name mailpit-mcp \
+docker run -d --name mailsandbox-mcp \
   -p 8025:8025 -p 1025:1025 \
   -e MP_MCP_SERVER=true \
   -e MP_POSTMARK_API=true \
   -e MP_POSTMARK_TOKEN=dev-token-123 \
   -e MP_POSTMARK_ACCEPT_ANY=true \
-  axllent/mailpit
+  axllent/mailsandbox
 ```
 
 **Claude Code Configuration**:
 ```json
 {
   "mcpServers": {
-    "mailpit-docker": {
+    "mailsandbox-docker": {
       "command": "docker",
       "args": [
-        "exec", "-i", "mailpit-mcp",
-        "mailpit", "--mcp-server", "--mcp-transport", "stdio",
-        "--database", "/data/mailpit.db"
+        "exec", "-i", "mailsandbox-mcp",
+        "mailsandbox", "--mcp-server", "--mcp-transport", "stdio",
+        "--database", "/data/mailsandbox.db"
       ]
     }
   }
@@ -240,12 +240,12 @@ docker run -d --name mailpit-mcp \
 ```json
 {
   "mcpServers": {
-    "mailpit-compose": {
+    "mailsandbox-compose": {
       "command": "docker-compose",
       "args": [
         "-f", "examples/docker-compose.mcp.yml",
-        "exec", "-T", "mailpit",
-        "mailpit", "--mcp-server", "--mcp-transport", "stdio"
+        "exec", "-T", "mailsandbox",
+        "mailsandbox", "--mcp-server", "--mcp-transport", "stdio"
       ]
     }
   }
@@ -288,13 +288,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Install Mailpit
+      - name: Install MailSandbox
         run: |
-          sudo sh < <(curl -sL https://raw.githubusercontent.com/axllent/mailpit/develop/install.sh)
+          sudo sh < <(curl -sL https://raw.githubusercontent.com/axllent/mailsandbox/develop/install.sh)
       
-      - name: Start Mailpit
+      - name: Start MailSandbox
         run: |
-          mailpit --postmark-api --postmark-accept-any --database /tmp/ci-mailpit.db &
+          mailsandbox --postmark-api --postmark-accept-any --database /tmp/ci-mailsandbox.db &
           sleep 2
       
       - name: Run tests
@@ -310,19 +310,19 @@ jobs:
 
 1. **Port Conflicts**: Use different ports if defaults are taken
    ```bash
-   mailpit --listen :18025 --smtp :11025 --mcp-http-addr :18026
+   mailsandbox --listen :18025 --smtp :11025 --mcp-http-addr :18026
    ```
 
-2. **Permission Issues**: Ensure Mailpit can write to database location
+2. **Permission Issues**: Ensure MailSandbox can write to database location
    ```bash
-   mkdir -p ~/.mailpit
-   mailpit --database ~/.mailpit/mailpit.db
+   mkdir -p ~/.mailsandbox
+   mailsandbox --database ~/.mailsandbox/mailsandbox.db
    ```
 
 3. **MCP Not Connecting**: Check Claude Code logs and configuration
    ```bash
-   # Check if Mailpit MCP is listed
-   # In Claude Code, it should show "mailpit" in available servers
+   # Check if MailSandbox MCP is listed
+   # In Claude Code, it should show "mailsandbox" in available servers
    ```
 
 4. **Postmark API Not Responding**: Verify configuration

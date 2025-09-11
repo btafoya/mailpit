@@ -10,11 +10,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/auth"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/pop3client"
-	"github.com/axllent/mailpit/internal/storage"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/auth"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/pop3client"
+	"github.com/btafoya/mailsandbox/internal/storage"
 	"github.com/jhillyerd/enmime/v2"
 )
 

@@ -10,15 +10,15 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "OpenAPI 2.0 documentation for [Mailpit](https://github.com/axllent/mailpit).",
-    "title": "Mailpit API",
+    "description": "OpenAPI 2.0 documentation for [MailSandbox](https://github.com/axllent/mailsandbox).",
+    "title": "MailSandbox API",
     "contact": {
       "name": "GitHub",
-      "url": "https://github.com/axllent/mailpit"
+      "url": "https://github.com/axllent/mailsandbox"
     },
     "license": {
       "name": "MIT license",
-      "url": "https://github.com/axllent/mailpit/blob/develop/LICENSE"
+      "url": "https://github.com/axllent/mailsandbox/blob/develop/LICENSE"
     },
     "version": "v1"
   },
@@ -666,7 +666,7 @@
     },
     "/api/v1/search": {
       "get": {
-        "description": "Returns messages matching [a search](https://mailpit.axllent.org/docs/usage/search-filters/), sorted by received date (descending).",
+        "description": "Returns messages matching [a search](https://mailsandbox.axllent.org/docs/usage/search-filters/), sorted by received date (descending).",
         "produces": [
           "application/json"
         ],
@@ -722,7 +722,7 @@
         }
       },
       "delete": {
-        "description": "Delete all messages matching [a search](https://mailpit.axllent.org/docs/usage/search-filters/).",
+        "description": "Delete all messages matching [a search](https://mailsandbox.axllent.org/docs/usage/search-filters/).",
         "produces": [
           "application/json"
         ],
@@ -808,7 +808,7 @@
                       "ContentID": {
                         "description": "Optional Content-ID (`cid`) for attachment.\nIf this field is set then the file is attached inline.",
                         "type": "string",
-                        "example": "mailpit-logo"
+                        "example": "mailsandbox-logo"
                       },
                       "ContentType": {
                         "description": "Optional Content Type for the the attachment.\nIf this field is not set (or empty) then the content type is automatically detected.",
@@ -818,7 +818,7 @@
                       "Filename": {
                         "description": "Filename",
                         "type": "string",
-                        "example": "mailpit.png"
+                        "example": "mailsandbox.png"
                       }
                     }
                   }
@@ -877,7 +877,7 @@
                 "HTML": {
                   "description": "Message body (HTML)",
                   "type": "string",
-                  "example": "\u003cdiv style=\"text-align:center\"\u003e\u003cp style=\"font-family: arial; font-size: 24px;\"\u003eMailpit is \u003cb\u003eawesome\u003c/b\u003e!\u003c/p\u003e\u003cp\u003e\u003cimg src=\"cid:mailpit-logo\" /\u003e\u003c/p\u003e\u003c/div\u003e"
+                  "example": "\u003cdiv style=\"text-align:center\"\u003e\u003cp style=\"font-family: arial; font-size: 24px;\"\u003eMailSandbox is \u003cb\u003eawesome\u003c/b\u003e!\u003c/p\u003e\u003cp\u003e\u003cimg src=\"cid:mailsandbox-logo\" /\u003e\u003c/p\u003e\u003c/div\u003e"
                 },
                 "Headers": {
                   "description": "Optional headers in {\"key\":\"value\"} format",
@@ -914,10 +914,10 @@
                 "Subject": {
                   "description": "Subject",
                   "type": "string",
-                  "example": "Mailpit message via the HTTP API"
+                  "example": "MailSandbox message via the HTTP API"
                 },
                 "Tags": {
-                  "description": "Mailpit tags",
+                  "description": "MailSandbox tags",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -930,7 +930,7 @@
                 "Text": {
                   "description": "Message body (text)",
                   "type": "string",
-                  "example": "Mailpit is awesome!"
+                  "example": "MailSandbox is awesome!"
                 },
                 "To": {
                   "description": "\"To\" recipients",
@@ -1275,7 +1275,7 @@
           "format": "uint64"
         },
         "LatestVersion": {
-          "description": "Latest Mailpit version",
+          "description": "Latest MailSandbox version",
           "type": "string"
         },
         "Messages": {
@@ -1318,7 +1318,7 @@
               "format": "uint64"
             },
             "Uptime": {
-              "description": "Mailpit server uptime in seconds",
+              "description": "MailSandbox server uptime in seconds",
               "type": "integer",
               "format": "uint64"
             }
@@ -1338,11 +1338,11 @@
           "format": "uint64"
         },
         "Version": {
-          "description": "Current Mailpit version",
+          "description": "Current MailSandbox version",
           "type": "string"
         }
       },
-      "x-go-package": "github.com/axllent/mailpit/internal/stats"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/stats"
     },
     "Attachment": {
       "description": "Attachment struct for inline and attachments",
@@ -1370,7 +1370,7 @@
           "format": "uint64"
         }
       },
-      "x-go-package": "github.com/axllent/mailpit/internal/storage"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/storage"
     },
     "ChaosTrigger": {
       "description": "Trigger for Chaos",
@@ -1394,7 +1394,7 @@
         }
       },
       "x-go-name": "Trigger",
-      "x-go-package": "github.com/axllent/mailpit/internal/smtpd/chaos"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/smtpd/chaos"
     },
     "ChaosTriggers": {
       "description": "Triggers for the Chaos configuration",
@@ -1411,7 +1411,7 @@
         }
       },
       "x-go-name": "Triggers",
-      "x-go-package": "github.com/axllent/mailpit/internal/smtpd/chaos"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/smtpd/chaos"
     },
     "HTMLCheckResponse": {
       "description": "Response represents the HTML check response struct",
@@ -1439,7 +1439,7 @@
         }
       },
       "x-go-name": "Response",
-      "x-go-package": "github.com/axllent/mailpit/internal/htmlcheck"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/htmlcheck"
     },
     "HTMLCheckResult": {
       "description": "Result struct",
@@ -1471,7 +1471,7 @@
         }
       },
       "x-go-name": "Result",
-      "x-go-package": "github.com/axllent/mailpit/internal/htmlcheck"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/htmlcheck"
     },
     "HTMLCheckScore": {
       "description": "Score struct",
@@ -1499,7 +1499,7 @@
         }
       },
       "x-go-name": "Score",
-      "x-go-package": "github.com/axllent/mailpit/internal/htmlcheck"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/htmlcheck"
     },
     "HTMLCheckTotal": {
       "description": "Total weighted result for all scores",
@@ -1532,7 +1532,7 @@
         }
       },
       "x-go-name": "Total",
-      "x-go-package": "github.com/axllent/mailpit/internal/htmlcheck"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/htmlcheck"
     },
     "HTMLCheckWarning": {
       "description": "Warning represents a failed test",
@@ -1588,7 +1588,7 @@
         }
       },
       "x-go-name": "Warning",
-      "x-go-package": "github.com/axllent/mailpit/internal/htmlcheck"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/htmlcheck"
     },
     "Link": {
       "description": "Link struct",
@@ -1608,7 +1608,7 @@
           "type": "string"
         }
       },
-      "x-go-package": "github.com/axllent/mailpit/internal/linkcheck"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/linkcheck"
     },
     "LinkCheckResponse": {
       "description": "Response represents the Link check response",
@@ -1628,7 +1628,7 @@
         }
       },
       "x-go-name": "Response",
-      "x-go-package": "github.com/axllent/mailpit/internal/linkcheck"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/linkcheck"
     },
     "ListUnsubscribe": {
       "description": "ListUnsubscribe contains a summary of List-Unsubscribe \u0026 List-Unsubscribe-Post headers\nincluding validation of the link structure",
@@ -1654,7 +1654,7 @@
           }
         }
       },
-      "x-go-package": "github.com/axllent/mailpit/internal/storage"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/storage"
     },
     "Message": {
       "description": "Message data excluding physical attachments",
@@ -1754,7 +1754,7 @@
           "type": "string"
         }
       },
-      "x-go-package": "github.com/axllent/mailpit/internal/storage"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/storage"
     },
     "MessageHeadersResponse": {
       "description": "Message headers",
@@ -1766,7 +1766,7 @@
         }
       },
       "x-go-name": "messageHeadersResponse",
-      "x-go-package": "github.com/axllent/mailpit/server/apiv1"
+      "x-go-package": "github.com/axllent/mailsandbox/server/apiv1"
     },
     "MessageSummary": {
       "description": "MessageSummary struct for frontend messages",
@@ -1850,7 +1850,7 @@
           "type": "string"
         }
       },
-      "x-go-package": "github.com/axllent/mailpit/internal/storage"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/storage"
     },
     "MessagesSummary": {
       "description": "MessagesSummary is a summary of a list of messages",
@@ -1903,7 +1903,7 @@
           "x-go-name": "Unread"
         }
       },
-      "x-go-package": "github.com/axllent/mailpit/server/apiv1"
+      "x-go-package": "github.com/axllent/mailsandbox/server/apiv1"
     },
     "Rule": {
       "description": "Rule struct",
@@ -1923,7 +1923,7 @@
           "format": "double"
         }
       },
-      "x-go-package": "github.com/axllent/mailpit/internal/spamassassin"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/spamassassin"
     },
     "SpamAssassinResponse": {
       "description": "Result is a SpamAssassin result",
@@ -1951,7 +1951,7 @@
         }
       },
       "x-go-name": "Result",
-      "x-go-package": "github.com/axllent/mailpit/internal/spamassassin"
+      "x-go-package": "github.com/axllent/mailsandbox/internal/spamassassin"
     }
   },
   "responses": {
@@ -2062,7 +2062,7 @@
             "type": "boolean"
           },
           "Label": {
-            "description": "Optional label to identify this Mailpit instance",
+            "description": "Optional label to identify this MailSandbox instance",
             "type": "string"
           },
           "MessageRelay": {

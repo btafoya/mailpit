@@ -7,8 +7,8 @@
 package apiv1
 
 import (
-	"github.com/axllent/mailpit/internal/smtpd/chaos"
-	"github.com/axllent/mailpit/internal/stats"
+	"github.com/btafoya/mailsandbox/internal/smtpd/chaos"
+	"github.com/btafoya/mailsandbox/internal/stats"
 )
 
 // Binary data response which inherits the attachment's content type.

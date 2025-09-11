@@ -7,24 +7,24 @@ echo "════════════════════════�
 echo "         MAILPIT INTEGRATION TEST SUITE"
 echo "═══════════════════════════════════════════════════════════════"
 
-# Kill any existing Mailpit instances on test ports
-pkill -f "mailpit.*18025" 2>/dev/null || true
+# Kill any existing MailSandbox instances on test ports
+pkill -f "mailsandbox.*18025" 2>/dev/null || true
 sleep 1
 
-# Start Mailpit with all features
-echo "Starting Mailpit with Postmark API and MCP server..."
-/tmp/mailpit-test \
-  --database /tmp/test-mailpit.db \
+# Start MailSandbox with all features
+echo "Starting MailSandbox with Postmark API and MCP server..."
+/tmp/mailsandbox-test \
+  --database /tmp/test-mailsandbox.db \
   --listen 127.0.0.1:18025 \
   --smtp 127.0.0.1:11025 \
   --postmark-api \
   --postmark-token "test123" \
   --mcp-server \
   --mcp-transport stdio \
-  --verbose > /tmp/mailpit-test.log 2>&1 &
+  --verbose > /tmp/mailsandbox-test.log 2>&1 &
 
 MAILPIT_PID=$!
-echo "Started Mailpit with PID: $MAILPIT_PID"
+echo "Started MailSandbox with PID: $MAILPIT_PID"
 
 # Wait for startup
 sleep 3
@@ -152,7 +152,7 @@ fi
 
 # Test 8: MCP server configuration check
 echo -n "8. MCP server configured: "
-if grep -q "mcp.*server initialized" /tmp/mailpit-test.log; then
+if grep -q "mcp.*server initialized" /tmp/mailsandbox-test.log; then
     echo "✓ PASS"
 else
     echo "✗ FAIL (feature may not be activated in stdio mode)"
@@ -162,7 +162,7 @@ fi
 echo ""
 echo "Cleaning up..."
 kill $MAILPIT_PID 2>/dev/null || true
-rm -f /tmp/test-mailpit.db /tmp/mailpit-test.log
+rm -f /tmp/test-mailsandbox.db /tmp/mailsandbox-test.log
 
 echo ""
 echo "═══════════════════════════════════════════════════════════════"

@@ -4,13 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Mailpit is an email and SMTP testing tool for developers. It captures emails via SMTP (port 1025), provides a web UI (port 8025) for viewing/testing, and includes a REST API for automation.
+MailSandbox is an email and SMTP testing tool for developers. It captures emails via SMTP (port 1025), provides a web UI (port 8025) for viewing/testing, and includes a REST API for automation.
 
 **Tech Stack**: Go 1.24.3 backend, Vue 3 + Bootstrap 5 frontend, SQLite storage, WebSockets for real-time updates
 
 ## Essential Commands
 
-### Running Mailpit
+### Running MailSandbox
 ```bash
 # Run locally with default settings
 go run main.go
@@ -27,7 +27,7 @@ npm run watch
 
 # Build for production
 npm run package
-CGO_ENABLED=0 go build -ldflags "-s -w" -o mailpit
+CGO_ENABLED=0 go build -ldflags "-s -w" -o mailsandbox
 ```
 
 ### Testing

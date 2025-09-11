@@ -2,11 +2,11 @@
 
 ## Quick Start
 
-### Basic Mailpit with all features enabled:
+### Basic MailSandbox with all features enabled:
 
 ```bash
 docker run -d \
-  --name mailpit \
+  --name mailsandbox \
   -p 8025:8025 \
   -p 1025:1025 \
   -p 8026:8026 \
@@ -14,7 +14,7 @@ docker run -d \
   -e MP_POSTMARK_TOKEN=your-secret-token \
   -e MP_MCP_SERVER=true \
   -e MP_MCP_TRANSPORT=websocket \
-  axllent/mailpit
+  axllent/mailsandbox
 ```
 
 ## Port Configuration
@@ -48,8 +48,8 @@ MP_MCP_AUTH_TOKEN=your-mcp-token        # Authentication token
 ### Development Setup
 ```yaml
 services:
-  mailpit:
-    image: axllent/mailpit
+  mailsandbox:
+    image: axllent/mailsandbox
     ports:
       - "8025:8025"
       - "1025:1025"
@@ -66,8 +66,8 @@ services:
 ### Production Setup
 ```yaml
 services:
-  mailpit:
-    image: axllent/mailpit
+  mailsandbox:
+    image: axllent/mailsandbox
     ports:
       - "8025:8025"
       - "1025:1025"
@@ -79,11 +79,11 @@ services:
       MP_MCP_TRANSPORT: websocket
       MP_MCP_AUTH_TOKEN: ${MCP_AUTH_TOKEN}
     volumes:
-      - mailpit-data:/data
+      - mailsandbox-data:/data
     restart: unless-stopped
 
 volumes:
-  mailpit-data:
+  mailsandbox-data:
 ```
 
 ## Testing the Container
@@ -118,8 +118,8 @@ wscat -c ws://localhost:8026/mcp
 ### Network Security
 ```yaml
 services:
-  mailpit:
-    image: axllent/mailpit
+  mailsandbox:
+    image: axllent/mailsandbox
     networks:
       - internal
     # Don't expose ports externally in production
@@ -137,20 +137,20 @@ networks:
 The container includes built-in health checks:
 ```bash
 docker ps  # Shows health status
-docker inspect mailpit | grep Health -A 10
+docker inspect mailsandbox | grep Health -A 10
 ```
 
 ## Logs and Debugging
 
 View container logs:
 ```bash
-docker logs mailpit
+docker logs mailsandbox
 
 # Follow logs
-docker logs -f mailpit
+docker logs -f mailsandbox
 
 # Show only new feature logs
-docker logs mailpit 2>&1 | grep -E "postmark|mcp"
+docker logs mailsandbox 2>&1 | grep -E "postmark|mcp"
 ```
 
 ## Volume Mounts
@@ -158,9 +158,9 @@ docker logs mailpit 2>&1 | grep -E "postmark|mcp"
 ### Persistent Data
 ```bash
 docker run -d \
-  -v mailpit-data:/data \
-  -e MP_DATA_FILE=/data/mailpit.db \
-  axllent/mailpit
+  -v mailsandbox-data:/data \
+  -e MP_DATA_FILE=/data/mailsandbox.db \
+  axllent/mailsandbox
 ```
 
 ### Configuration Files
@@ -168,5 +168,5 @@ docker run -d \
 docker run -d \
   -v ./config:/config \
   -e MP_UI_CONFIG=/config/ui.json \
-  axllent/mailpit
+  axllent/mailsandbox
 ```

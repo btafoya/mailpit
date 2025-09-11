@@ -38,11 +38,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
-        binary_name: "mailpit"
+        binary_name: "mailsandbox"
         pre_command: export CGO_ENABLED=0
-        asset_name: mailpit-${{ matrix.goos }}-${{ matrix.goarch }}
+        asset_name: mailsandbox-${{ matrix.goos }}-${{ matrix.goarch }}
         extra_files: LICENSE README.md
         md5sum: false
         overwrite: true
         retry: 5
-        ldflags: -w -X "github.com/axllent/mailpit/config.Version=${{ github.ref_name }}"
+        ldflags: -w -X "github.com/axllent/mailsandbox/config.Version=${{ github.ref_name }}"

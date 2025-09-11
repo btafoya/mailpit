@@ -1,27 +1,27 @@
-# Mailpit Enhancement Design: Postmark API Emulation & MCP Server
+# MailSandbox Enhancement Design: Postmark API Emulation & MCP Server
 
 ## Executive Summary
 
-This design document outlines the implementation of two new features for Mailpit:
-1. **Postmark API Emulation**: Allow Mailpit to act as a drop-in replacement for Postmark during testing
+This design document outlines the implementation of two new features for MailSandbox:
+1. **Postmark API Emulation**: Allow MailSandbox to act as a drop-in replacement for Postmark during testing
 2. **MCP Server Integration**: Enable external tools to read and analyze messages via the Model Context Protocol
 
 ## 1. Postmark API Emulation Endpoint
 
 ### Overview
-Implement Postmark-compatible API endpoints to allow applications configured for Postmark to seamlessly send emails to Mailpit during development and testing.
+Implement Postmark-compatible API endpoints to allow applications configured for Postmark to seamlessly send emails to MailSandbox during development and testing.
 
 ### Design Architecture
 
 ```
 ┌─────────────────┐         ┌──────────────────────┐
-│   Application   │ ──POST──▶│  Mailpit Postmark   │
+│   Application   │ ──POST──▶│  MailSandbox Postmark   │
 │ (Postmark SDK)  │         │    API Emulator     │
 └─────────────────┘         └──────────────────────┘
                                       │
                                       ▼
                             ┌──────────────────────┐
-                            │  Mailpit Storage     │
+                            │  MailSandbox Storage     │
                             │    (SQLite)          │
                             └──────────────────────┘
 ```
@@ -34,7 +34,7 @@ server/
 ├── postmark/
 │   ├── postmark.go        # Main Postmark API handler
 │   ├── structs.go         # Postmark request/response structs
-│   ├── converter.go       # Convert Postmark format to Mailpit format
+│   ├── converter.go       # Convert Postmark format to MailSandbox format
 │   └── postmark_test.go   # Unit tests
 ```
 
@@ -111,8 +111,8 @@ package postmark
 import (
     "encoding/json"
     "net/http"
-    "github.com/axllent/mailpit/internal/storage"
-    "github.com/axllent/mailpit/internal/smtpd"
+    "github.com/axllent/mailsandbox/internal/storage"
+    "github.com/axllent/mailsandbox/internal/smtpd"
 )
 
 func SendEmailHandler(w http.ResponseWriter, r *http.Request) {
@@ -130,8 +130,8 @@ func SendEmailHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
     
-    // 3. Convert to Mailpit message format
-    message := convertToMailpitMessage(req)
+    // 3. Convert to MailSandbox message format
+    message := convertToMailSandboxMessage(req)
     
     // 4. Store in database
     id, err := storage.Store(message)
@@ -193,19 +193,19 @@ if config.EnablePostmarkAPI {
 ## 2. MCP Server Endpoint
 
 ### Overview
-Implement a Model Context Protocol (MCP) server that exposes Mailpit's message data to AI assistants and automation tools for debugging and analysis.
+Implement a Model Context Protocol (MCP) server that exposes MailSandbox's message data to AI assistants and automation tools for debugging and analysis.
 
 ### Design Architecture
 
 ```
 ┌──────────────────┐         ┌──────────────────────┐
-│   MCP Client     │ ◀──RPC──▶│   Mailpit MCP       │
+│   MCP Client     │ ◀──RPC──▶│   MailSandbox MCP       │
 │ (Claude, etc.)   │         │      Server          │
 └──────────────────┘         └──────────────────────┘
                                       │
                                       ▼
                             ┌──────────────────────┐
-                            │  Mailpit Storage     │
+                            │  MailSandbox Storage     │
                             │    (SQLite)          │
                             └──────────────────────┘
 ```
@@ -307,12 +307,12 @@ package mcpserver
 import (
     "context"
     "github.com/modelcontextprotocol/go-sdk/pkg/mcp"
-    "github.com/axllent/mailpit/internal/storage"
+    "github.com/axllent/mailsandbox/internal/storage"
 )
 
 func InitMCPServer() *mcp.Server {
     server := mcp.NewServer(&mcp.Implementation{
-        Name:    "mailpit-mcp",
+        Name:    "mailsandbox-mcp",
         Version: "v1.0.0",
     }, nil)
     
@@ -328,7 +328,7 @@ func InitMCPServer() *mcp.Server {
 func registerListMessagesTool(server *mcp.Server) {
     mcp.AddTool(server, &mcp.Tool{
         Name:        "list_messages",
-        Description: "List recent messages in Mailpit",
+        Description: "List recent messages in MailSandbox",
     }, ListMessages)
 }
 
@@ -489,14 +489,14 @@ github.com/jhillyerd/enmime   // Email parsing
 ### Basic Setup
 ```bash
 # Enable both features
-mailpit --postmark-api --postmark-accept-any \
+mailsandbox --postmark-api --postmark-accept-any \
         --mcp-server --mcp-transport stdio
 ```
 
 ### Production Setup
 ```bash
 # With authentication
-mailpit --postmark-api --postmark-token="test-token-12345" \
+mailsandbox --postmark-api --postmark-token="test-token-12345" \
         --mcp-server --mcp-transport http \
         --mcp-http-addr=":8026" \
         --mcp-auth-token="mcp-secret-token"
@@ -505,8 +505,8 @@ mailpit --postmark-api --postmark-token="test-token-12345" \
 ### Docker Compose
 ```yaml
 services:
-  mailpit:
-    image: axllent/mailpit
+  mailsandbox:
+    image: axllent/mailsandbox
     ports:
       - "1025:1025"  # SMTP
       - "8025:8025"  # Web UI
@@ -524,5 +524,5 @@ services:
 
 1. **Postmark API**: 100% compatibility with basic Postmark SDK operations
 2. **MCP Server**: Successful integration with Claude and other MCP clients
-3. **Performance**: No degradation in existing Mailpit performance
+3. **Performance**: No degradation in existing MailSandbox performance
 4. **Testing**: >80% code coverage for new features

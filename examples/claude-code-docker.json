@@ -1,56 +1,56 @@
 {
-  "// NOTE": "Configuration examples for Claude Code with Dockerized Mailpit",
+  "// NOTE": "Configuration examples for Claude Code with Dockerized MailSandbox",
   "// USAGE": "Use the CLI commands below rather than JSON configuration",
   
   "// RECOMMENDED": "Use Claude Code CLI instead:",
-  "// claude mcp add mailpit-docker -- docker exec -i mailpit mailpit --mcp-server --mcp-transport stdio",
+  "// claude mcp add mailsandbox-docker -- docker exec -i mailsandbox mailsandbox --mcp-server --mcp-transport stdio",
   
   "mcpServers": {
-    "mailpit-docker-stdio": {
-      "// DESCRIPTION": "Connect to Dockerized Mailpit via stdio",
+    "mailsandbox-docker-stdio": {
+      "// DESCRIPTION": "Connect to Dockerized MailSandbox via stdio",
       "command": "docker",
       "args": [
-        "exec", "-i", "mailpit-mcp",
-        "mailpit", "--mcp-server", "--mcp-transport", "stdio",
-        "--database", "/data/mailpit.db"
+        "exec", "-i", "mailsandbox-mcp",
+        "mailsandbox", "--mcp-server", "--mcp-transport", "stdio",
+        "--database", "/data/mailsandbox.db"
       ],
-      "// NOTE": "Requires: docker run with name 'mailpit-mcp'"
+      "// NOTE": "Requires: docker run with name 'mailsandbox-mcp'"
     },
     
-    "mailpit-docker-exec": {
-      "// DESCRIPTION": "Execute Mailpit commands in Docker container",
+    "mailsandbox-docker-exec": {
+      "// DESCRIPTION": "Execute MailSandbox commands in Docker container",
       "command": "docker",
       "args": [
-        "exec", "-i", "mailpit-mcp",
-        "mailpit", 
+        "exec", "-i", "mailsandbox-mcp",
+        "mailsandbox", 
         "--mcp-server",
         "--mcp-transport", "stdio",
-        "--database", "/data/mailpit.db"
+        "--database", "/data/mailsandbox.db"
       ],
-      "// NOTE": "Requires: docker container named 'mailpit-mcp' to be running"
+      "// NOTE": "Requires: docker container named 'mailsandbox-mcp' to be running"
     },
 
-    "mailpit-compose-exec": {
+    "mailsandbox-compose-exec": {
       "// DESCRIPTION": "Execute via docker-compose (recommended for development)",
       "command": "docker-compose", 
       "args": [
         "-f", "examples/docker-compose.mcp.yml",
-        "exec", "-T", "mailpit",
-        "mailpit",
+        "exec", "-T", "mailsandbox",
+        "mailsandbox",
         "--mcp-server", 
         "--mcp-transport", "stdio",
-        "--database", "/data/mailpit.db"
+        "--database", "/data/mailsandbox.db"
       ],
       "// NOTE": "Run from project root directory"
     },
     
-    "mailpit-local-with-docker-data": {
-      "// DESCRIPTION": "Local Mailpit binary accessing Docker volume data",
-      "command": "mailpit",
+    "mailsandbox-local-with-docker-data": {
+      "// DESCRIPTION": "Local MailSandbox binary accessing Docker volume data",
+      "command": "mailsandbox",
       "args": [
         "--mcp-server",
         "--mcp-transport", "stdio",
-        "--database", "/var/lib/docker/volumes/mailpit_mailpit-data/_data/mailpit.db"
+        "--database", "/var/lib/docker/volumes/mailsandbox_mailsandbox-data/_data/mailsandbox.db"
       ],
       "// NOTE": "Adjust volume path based on your Docker setup"
     }

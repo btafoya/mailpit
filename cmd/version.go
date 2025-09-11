@@ -5,7 +5,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/axllent/mailpit/config"
+	"github.com/btafoya/mailsandbox/config"
 	"github.com/spf13/cobra"
 )
 

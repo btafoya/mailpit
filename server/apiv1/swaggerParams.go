@@ -6,7 +6,7 @@
 //nolint:unused
 package apiv1
 
-import "github.com/axllent/mailpit/internal/smtpd/chaos"
+import "github.com/btafoya/mailsandbox/internal/smtpd/chaos"
 
 // swagger:parameters setChaosParams
 type setChaosParams struct {

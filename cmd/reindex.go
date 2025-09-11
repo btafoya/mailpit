@@ -3,9 +3,9 @@ package cmd
 import (
 	"os"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/storage"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/storage"
 	"github.com/spf13/cobra"
 )
 

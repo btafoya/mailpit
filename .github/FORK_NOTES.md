@@ -1,7 +1,7 @@
 # Fork Maintenance Notes
 
 ## About This Fork
-This is an independent fork of [axllent/mailpit](https://github.com/axllent/mailpit) with additional enterprise features.
+This is an independent fork of [axllent/mailsandbox](https://github.com/axllent/mailsandbox) with additional enterprise features.
 
 ## Enhanced Features
 - **Postmark API Emulation**: Full compatibility with Postmark's API for testing
@@ -10,8 +10,8 @@ This is an independent fork of [axllent/mailpit](https://github.com/axllent/mail
 - **Extended Documentation**: Comprehensive guides for all new features
 
 ## Upstream Relationship
-- Original: https://github.com/axllent/mailpit
-- This fork: https://github.com/btafoya/mailpit
+- Original: https://github.com/axllent/mailsandbox
+- This fork: https://github.com/btafoya/mailsandbox
 - Status: Independent development with selective upstream merging
 
 ## Sync Strategy

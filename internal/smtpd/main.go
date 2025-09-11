@@ -9,13 +9,13 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/auth"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/stats"
-	"github.com/axllent/mailpit/internal/storage"
-	"github.com/axllent/mailpit/internal/tools"
-	"github.com/axllent/mailpit/server/websockets"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/auth"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/stats"
+	"github.com/btafoya/mailsandbox/internal/storage"
+	"github.com/btafoya/mailsandbox/internal/tools"
+	"github.com/btafoya/mailsandbox/server/websockets"
 	"github.com/lithammer/shortuuid/v4"
 )
 
@@ -36,7 +36,7 @@ func mailHandler(origin net.Addr, from string, to []string, data []byte, smtpUse
 func SaveToDatabase(origin net.Addr, from string, to []string, data []byte, smtpUser *string) (string, error) {
 	if !config.SMTPStrictRFCHeaders && bytes.Contains(data, []byte("\r\r\n")) {
 		// replace all <CR><CR><LF> (\r\r\n) with <CR><LF> (\r\n)
-		// @see https://github.com/axllent/mailpit/issues/87 & https://github.com/axllent/mailpit/issues/153
+		// @see https://github.com/btafoya/mailsandbox/issues/87 & https://github.com/btafoya/mailsandbox/issues/153
 		data = bytes.ReplaceAll(data, []byte("\r\r\n"), []byte("\r\n"))
 	}
 

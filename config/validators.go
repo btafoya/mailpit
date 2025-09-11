@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/smtpd/chaos"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/smtpd/chaos"
 	"github.com/goccy/go-yaml"
 )
 

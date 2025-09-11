@@ -2,9 +2,9 @@
 
 ## Overview
 
-Mailpit now includes two powerful new features:
+MailSandbox now includes two powerful new features:
 
-1. **Postmark API Emulation** - Allow applications using the Postmark SDK to send test emails to Mailpit
+1. **Postmark API Emulation** - Allow applications using the Postmark SDK to send test emails to MailSandbox
 2. **MCP (Model Context Protocol) Server** - Enable AI assistants to read and analyze messages during debugging sessions
 
 ## Postmark API Emulation
@@ -14,7 +14,7 @@ Mailpit now includes two powerful new features:
 Enable the Postmark API emulation with the following flags:
 
 ```bash
-mailpit --postmark-api --postmark-token "your-secret-token"
+mailsandbox --postmark-api --postmark-token "your-secret-token"
 ```
 
 Environment variables:
@@ -42,7 +42,7 @@ X-Postmark-Server-Token: your-secret-token
 const postmark = require("postmark");
 const client = new postmark.ServerClient("your-secret-token");
 
-// Point to your local Mailpit instance
+// Point to your local MailSandbox instance
 client.apiUrl = "http://localhost:8025";
 
 // Send email
@@ -82,7 +82,7 @@ curl -X POST http://localhost:8025/email \
 Enable the MCP server with the following flags:
 
 ```bash
-mailpit --mcp-server --mcp-transport stdio
+mailsandbox --mcp-server --mcp-transport stdio
 ```
 
 Environment variables:
@@ -136,11 +136,11 @@ Add to your Claude Code configuration:
 ```json
 {
   "mcpServers": {
-    "mailpit": {
-      "command": "mailpit",
+    "mailsandbox": {
+      "command": "mailsandbox",
       "args": ["--mcp-server", "--mcp-transport", "stdio"],
       "env": {
-        "MP_DATABASE": "/path/to/mailpit.db"
+        "MP_DATABASE": "/path/to/mailsandbox.db"
       }
     }
   }
@@ -191,7 +191,7 @@ const ws = new WebSocket('ws://localhost:8025/mcp', {
    - Review logs for connection errors
 
 3. **Messages not appearing**
-   - Ensure Mailpit is running and accessible
+   - Ensure MailSandbox is running and accessible
    - Check the SMTP server is configured correctly
    - Verify database permissions
 
@@ -199,7 +199,7 @@ const ws = new WebSocket('ws://localhost:8025/mcp', {
 
 Enable debug logging for more detailed information:
 ```bash
-mailpit --verbose
+mailsandbox --verbose
 ```
 
 ## Examples
@@ -236,7 +236,7 @@ const { MCPClient } = require('@modelcontextprotocol/sdk');
 async function analyzeEmails() {
   const client = new MCPClient({
     transport: 'stdio',
-    command: 'mailpit',
+    command: 'mailsandbox',
     args: ['--mcp-server', '--mcp-transport', 'stdio']
   });
 
@@ -272,4 +272,4 @@ To contribute to these features:
 
 ## License
 
-These features are part of Mailpit and follow the same MIT license.
+These features are part of MailSandbox and follow the same MIT license.

@@ -8,11 +8,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/axllent/mailpit/config"
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/smtpd"
-	"github.com/axllent/mailpit/internal/storage"
-	"github.com/axllent/mailpit/internal/tools"
+	"github.com/btafoya/mailsandbox/config"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/smtpd"
+	"github.com/btafoya/mailsandbox/internal/storage"
+	"github.com/btafoya/mailsandbox/internal/tools"
 	"github.com/gorilla/mux"
 	"github.com/lithammer/shortuuid/v4"
 )

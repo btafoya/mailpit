@@ -17,8 +17,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/axllent/mailpit/internal/logger"
-	"github.com/axllent/mailpit/internal/tools"
+	"github.com/btafoya/mailsandbox/internal/logger"
+	"github.com/btafoya/mailsandbox/internal/tools"
 )
 
 var keys = make(map[string]KeyPair)

@@ -66,7 +66,7 @@
 
 ### Modular Design
 - Each feature is contained in its own package
-- No modifications to core Mailpit functionality
+- No modifications to core MailSandbox functionality
 - Easy to enable/disable via configuration
 
 ### Security First
@@ -78,7 +78,7 @@
 ### Compatibility
 - Postmark API matches official SDK expectations
 - MCP follows the Model Context Protocol specification
-- Backward compatible with existing Mailpit installations
+- Backward compatible with existing MailSandbox installations
 
 ## Testing Considerations
 
@@ -143,12 +143,12 @@
 
 ### Development
 ```bash
-mailpit --postmark-api --postmark-accept-any --mcp-server --mcp-transport stdio
+mailsandbox --postmark-api --postmark-accept-any --mcp-server --mcp-transport stdio
 ```
 
 ### Production
 ```bash
-mailpit \
+mailsandbox \
   --postmark-api \
   --postmark-token "$POSTMARK_TOKEN" \
   --mcp-server \
@@ -159,4 +159,4 @@ mailpit \
 
 ## Conclusion
 
-Both features have been successfully implemented and integrated into Mailpit. The implementation follows Go best practices, maintains backward compatibility, and provides a solid foundation for future enhancements. The modular architecture ensures that these features can evolve independently without affecting core Mailpit functionality.
+Both features have been successfully implemented and integrated into MailSandbox. The implementation follows Go best practices, maintains backward compatibility, and provides a solid foundation for future enhancements. The modular architecture ensures that these features can evolve independently without affecting core MailSandbox functionality.

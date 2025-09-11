@@ -3,7 +3,7 @@ package cmd
 import (
 	"os"
 
-	sendmail "github.com/axllent/mailpit/sendmail/cmd"
+	sendmail "github.com/btafoya/mailsandbox/sendmail/cmd"
 	"github.com/spf13/cobra"
 )
 

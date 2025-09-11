@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/axllent/mailpit/internal/spamassassin/postmark"
-	"github.com/axllent/mailpit/internal/spamassassin/spamc"
+	"github.com/btafoya/mailsandbox/internal/spamassassin/postmark"
+	"github.com/btafoya/mailsandbox/internal/spamassassin/spamc"
 )
 
 var (
