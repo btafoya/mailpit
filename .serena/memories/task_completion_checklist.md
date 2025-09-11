@@ -1,6 +1,6 @@
 # Task Completion Checklist for MailSandbox
 
-When completing any mainment task in MailSandbox, ensure you:
+When completing any development task in MailSandbox, ensure you:
 
 ## Before Committing
 

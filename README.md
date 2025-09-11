@@ -1,4 +1,4 @@
-# MailSandbox — email testing & simulation for mainers
+# MailSandbox — email testing & simulation for developers
 
 > **Fork of [Mailpit](https://github.com/axllent/mailpit)** adding Postmark API emulation and an MCP server for AI-assisted debugging.  
 > Inspired by and grateful to the original work on **Mailpit** and **MailHog**. See [Credits](#credits--acknowledgements).
@@ -13,7 +13,7 @@
 
 ---
 
-**MailSandbox** is a small, fast, low-memory, zero-dependency, multi-platform **email testing tool & API** for mainers.  
+**MailSandbox** is a small, fast, low-memory, zero-dependency, multi-platform **email testing tool & API** for developers.  
 It provides an SMTP server, modern web interface, REST API, Postmark API emulation, and an MCP server for AI-powered workflows.
 
 ---
@@ -28,7 +28,7 @@ It provides an SMTP server, modern web interface, REST API, Postmark API emulati
 - ⚡ **Performance** — 100–200 emails/sec, automatic pruning (default 500 emails)  
 - 🧪 **Chaos mode** — inject SMTP errors to test resilience  
 - 🔔 **Integrations** — webhooks, browser notifications, `List-Unsubscribe` validation  
-- 🆕 **Postmark API emulation** — drop-in replacement for Postmark during mainment  
+- 🆕 **Postmark API emulation** — drop-in replacement for Postmark during development  
 - 🤖 **MCP server** — AI assistants (e.g., Claude Code) can list, search, and analyze messages  
 
 ---
@@ -147,7 +147,7 @@ docker run -d --name mailsandbox   -p 127.0.0.1:8025:8025 -p 1025:1025   -e MP_M
 
 ## Credits & Acknowledgements
 
-- **[Mailpit](https://github.com/axllent/mailpit)** — by Axel Lenferna de la Motte and contributors. Original project and active mainment.  
+- **[Mailpit](https://github.com/axllent/mailpit)** — by Axel Lenferna de la Motte and contributors. Original project and active development.  
 - **[MailHog](https://github.com/mailhog/MailHog)** — the original inspiration for mainer email testing tools.  
 - **MailSandbox** — maintained by Brian Tafoya, adding Postmark API emulation and MCP server support.  
 

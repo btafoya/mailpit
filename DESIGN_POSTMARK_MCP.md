@@ -9,7 +9,7 @@ This design document outlines the implementation of two new features for MailSan
 ## 1. Postmark API Emulation Endpoint
 
 ### Overview
-Implement Postmark-compatible API endpoints to allow applications configured for Postmark to seamlessly send emails to MailSandbox during mainment and testing.
+Implement Postmark-compatible API endpoints to allow applications configured for Postmark to seamlessly send emails to MailSandbox during development and testing.
 
 ### Design Architecture
 

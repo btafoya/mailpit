@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-MailSandbox is an email and SMTP testing tool for mainers. It captures emails via SMTP (port 1025), provides a web UI (port 8025) for viewing/testing, and includes a REST API for automation.
+MailSandbox is an email and SMTP testing tool for developers. It captures emails via SMTP (port 1025), provides a web UI (port 8025) for viewing/testing, and includes a REST API for automation.
 
 **Tech Stack**: Go 1.24.3 backend, Vue 3 + Bootstrap 5 frontend, SQLite storage, WebSockets for real-time updates
 
@@ -19,9 +19,9 @@ go run main.go
 go run main.go --smtp 0.0.0.0:1025 --ui 0.0.0.0:8025
 ```
 
-### mainment Workflow
+### Development Workflow
 ```bash
-# Frontend mainment (watch mode)
+# Frontend development (watch mode)
 npm install
 npm run watch
 
@@ -105,7 +105,7 @@ main.go            - Application entry point
 4. **Build assets**: `npm run package`
 5. **Verify build**: `go build`
 
-## Common mainment Tasks
+## Common Development Tasks
 
 ### Adding a New API Endpoint
 1. Add handler in `server/apiv1/`
@@ -121,7 +121,7 @@ main.go            - Application entry point
 
 ### Updating the Web UI
 1. Vue components in `server/ui-src/components/`
-2. Run `npm run watch` for mainment
+2. Run `npm run watch` for development
 3. Build with `npm run package` before testing with Go binary
 4. WebSocket updates in `server/ui-src/mixins/websocket.js`
 

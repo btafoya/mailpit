@@ -43,7 +43,7 @@ Please do not report security issues publicly in GitHub. Refer to [SECURITY docu
    Run all tests to ensure nothing is broken. This is a mandatory step as pull requests cannot be merged unless they pass the automated testing.
 
 6. **Ensure your changes pass linting**  
-   Ensure your changes pass the [code linting](https://mailsandbox.axllent.org/docs/mainment/code-linting/) requirements. This is a mandatory step as pull requests cannot be merged unless they pass the automated linting tests.
+   Ensure your changes pass the [code linting](https://mailsandbox.axllent.org/docs/development/code-linting/) requirements. This is a mandatory step as pull requests cannot be merged unless they pass the automated linting tests.
 
 7. **Commit and push**  
    Write a clear commit message:

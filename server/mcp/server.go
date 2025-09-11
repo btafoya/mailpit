@@ -20,7 +20,7 @@ var (
 	// upgrader for WebSocket connections
 	upgrader = websocket.Upgrader{
 		CheckOrigin: func(r *http.Request) bool {
-			// Allow connections from any origin for mainment
+			// Allow connections from any origin for development
 			// In production, you might want to restrict this
 			return true
 		},

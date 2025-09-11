@@ -13,7 +13,7 @@ CGO_ENABLED=0 go build -ldflags "-s -w -X github.com/btafoya/mailsandbox/config.
 FROM alpine:latest
 
 LABEL org.opencontainers.image.title="MailSandbox" \
-  org.opencontainers.image.description="An email and SMTP testing tool with API for mainers, Postmark API emulation, and MCP server support" \
+  org.opencontainers.image.description="An email and SMTP testing tool with API for developers, Postmark API emulation, and MCP server support" \
   org.opencontainers.image.source="https://github.com/btafoya/mailsandbox" \
   org.opencontainers.image.url="https://github.com/btafoya/mailsandbox" \
   org.opencontainers.image.documentation="https://github.com/btafoya/mailsandbox/blob/main/README.md" \

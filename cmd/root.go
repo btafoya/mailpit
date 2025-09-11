@@ -22,15 +22,14 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "mailpit",
-	Short: "Mailpit is an email testing tool for mainers",
-	Long: `Mailpit is an email testing tool for mainers.
+	Use:   "mailsandbox",
+	Short: "MailSandbox is an email testing tool for developers",
+	Long: `MailSandbox is an email testing tool for developers.
 
 It acts as an SMTP server, and provides a web interface to view all captured emails.
 
 Documentation:
-  https://github.com/btafoya/mailsandbox
-  https://mailpit.axllent.org/docs/`,
+  https://github.com/btafoya/mailsandbox`,
 	Run: func(_ *cobra.Command, _ []string) {
 		if err := config.VerifyConfig(); err != nil {
 			logger.Log().Error(err.Error())

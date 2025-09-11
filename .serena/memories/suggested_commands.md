@@ -1,6 +1,6 @@
-# MailSandbox mainment Commands
+# MailSandbox development Commands
 
-## Backend mainment
+## Backend development
 ```bash
 # Run MailSandbox locally
 go run main.go
@@ -27,7 +27,7 @@ gofmt -s -w .
 gofmt -s -d .
 ```
 
-## Frontend mainment
+## Frontend development
 ```bash
 # Install dependencies
 npm install
@@ -35,7 +35,7 @@ npm install
 # Build frontend assets (minified for production)
 npm run build
 
-# Watch mode for mainment
+# Watch mode for development
 npm run watch
 
 # Package for production (same as build)

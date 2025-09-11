@@ -1,6 +1,6 @@
 # MailSandbox Integration Examples
 
-This directory contains examples of how to integrate MailSandbox with various mainment environments and tools.
+This directory contains examples of how to integrate MailSandbox with various development environments and tools.
 
 ## VS Code with MCP
 
@@ -20,7 +20,7 @@ This directory contains examples of how to integrate MailSandbox with various ma
    mkdir -p .mailsandbox
    ```
 
-4. **Start mainment** - The MCP server will automatically start when Claude Code needs to access it
+4. **Start development** - The MCP server will automatically start when Claude Code needs to access it
 
 ### Available Configurations
 
@@ -186,7 +186,7 @@ abstract class MailSandboxTestCase extends TestCase
 }
 ```
 
-## Docker mainment
+## Docker development
 
 ### MCP with Docker
 
@@ -252,18 +252,18 @@ docker run -d --name mailsandbox-mcp \
 }
 ```
 
-### Docker Compose for mainment
+### Docker Compose for development
 
 See the comprehensive example in `examples/docker-compose.mcp.yml` which includes:
 
-- Basic mainment setup with MCP WebSocket
+- Basic development setup with MCP WebSocket
 - Production configuration with security
 - Example application integration
 - Health checks and networking
 
 ### Usage
 ```bash
-# mainment mode
+# development mode
 docker-compose -f examples/docker-compose.mcp.yml up
 
 # With example application

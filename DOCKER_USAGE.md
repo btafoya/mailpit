@@ -45,7 +45,7 @@ MP_MCP_AUTH_TOKEN=your-mcp-token        # Authentication token
 
 ## Docker Compose Examples
 
-### mainment Setup
+### development Setup
 ```yaml
 services:
   mailsandbox:
