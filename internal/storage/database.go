@@ -121,9 +121,9 @@ func InitDB() error {
 	if sqlDriver == "sqlite" {
 		// SQLite works best with a single connection to avoid locking issues
 		// WAL mode still allows concurrent readers at the SQLite level
-		db.SetMaxOpenConns(1)  // Single connection to prevent locking
+		db.SetMaxOpenConns(1) // Single connection to prevent locking
 		db.SetMaxIdleConns(1)
-		db.SetConnMaxLifetime(0)  // Unlimited lifetime for single connection
+		db.SetConnMaxLifetime(0) // Unlimited lifetime for single connection
 	} else {
 		// For other databases (MySQL, PostgreSQL, RQLite), use proper pooling
 		db.SetMaxOpenConns(25)
