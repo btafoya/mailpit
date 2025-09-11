@@ -30,10 +30,10 @@ func NewRateLimiter(requestsPerMinute int) *RateLimiter {
 		interval: time.Minute,
 		cleanup:  5 * time.Minute,
 	}
-	
+
 	// Start cleanup goroutine
 	go rl.cleanupVisitors()
-	
+
 	return rl
 }
 
@@ -41,7 +41,7 @@ func NewRateLimiter(requestsPerMinute int) *RateLimiter {
 func (rl *RateLimiter) cleanupVisitors() {
 	ticker := time.NewTicker(rl.cleanup)
 	defer ticker.Stop()
-	
+
 	for range ticker.C {
 		rl.mu.Lock()
 		now := time.Now()
@@ -58,10 +58,10 @@ func (rl *RateLimiter) cleanupVisitors() {
 func (rl *RateLimiter) Allow(ip string) bool {
 	rl.mu.Lock()
 	defer rl.mu.Unlock()
-	
+
 	now := time.Now()
 	v, exists := rl.visitors[ip]
-	
+
 	if !exists {
 		// First visit
 		rl.visitors[ip] = &visitor{
@@ -70,21 +70,21 @@ func (rl *RateLimiter) Allow(ip string) bool {
 		}
 		return true
 	}
-	
+
 	// Calculate tokens to add based on time elapsed
 	elapsed := now.Sub(v.lastVisit)
 	tokensToAdd := int(elapsed.Seconds() * float64(rl.limit) / rl.interval.Seconds())
-	
+
 	// Update tokens (cap at limit)
 	v.tokens = min(v.tokens+tokensToAdd, rl.limit)
 	v.lastVisit = now
-	
+
 	// Check if request is allowed
 	if v.tokens > 0 {
 		v.tokens--
 		return true
 	}
-	
+
 	return false
 }
 
@@ -94,13 +94,13 @@ func (rl *RateLimiter) Middleware() func(http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			// Extract client IP
 			ip := getClientIP(r)
-			
+
 			// Check rate limit
 			if !rl.Allow(ip) {
 				http.Error(w, "Rate limit exceeded. Please try again later.", http.StatusTooManyRequests)
 				return
 			}
-			
+
 			// Continue to next handler
 			next.ServeHTTP(w, r)
 		})
@@ -118,13 +118,13 @@ func getClientIP(r *http.Request) string {
 		}
 		return strings.TrimSpace(xff)
 	}
-	
+
 	// Check X-Real-IP header
 	xri := r.Header.Get("X-Real-IP")
 	if xri != "" {
 		return xri
 	}
-	
+
 	// Fall back to RemoteAddr
 	if idx := strings.LastIndex(r.RemoteAddr, ":"); idx != -1 {
 		return r.RemoteAddr[:idx]
@@ -144,7 +144,7 @@ func min(a, b int) int {
 type RateLimitConfig struct {
 	Enabled           bool
 	RequestsPerMinute int
-	
+
 	// Different limits for different endpoints
 	APILimit     int
 	SendAPILimit int
@@ -161,3 +161,4 @@ func DefaultRateLimitConfig() *RateLimitConfig {
 		WebUILimit:        200, // Web UI: 200 requests per minute
 	}
 }
+

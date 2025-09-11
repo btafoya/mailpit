@@ -11,42 +11,42 @@ import (
 // Metrics tracks application performance and usage metrics
 type Metrics struct {
 	mu sync.RWMutex
-	
+
 	// Counters
-	MessagesReceived  int64 `json:"messages_received"`
-	MessagesSent      int64 `json:"messages_sent"`
-	MessagesDeleted   int64 `json:"messages_deleted"`
-	APIRequests       int64 `json:"api_requests"`
-	APIErrors         int64 `json:"api_errors"`
-	SMTPConnections   int64 `json:"smtp_connections"`
-	SMTPErrors        int64 `json:"smtp_errors"`
-	AuthAttempts      int64 `json:"auth_attempts"`
-	AuthFailures      int64 `json:"auth_failures"`
-	RateLimitHits     int64 `json:"rate_limit_hits"`
-	
+	MessagesReceived int64 `json:"messages_received"`
+	MessagesSent     int64 `json:"messages_sent"`
+	MessagesDeleted  int64 `json:"messages_deleted"`
+	APIRequests      int64 `json:"api_requests"`
+	APIErrors        int64 `json:"api_errors"`
+	SMTPConnections  int64 `json:"smtp_connections"`
+	SMTPErrors       int64 `json:"smtp_errors"`
+	AuthAttempts     int64 `json:"auth_attempts"`
+	AuthFailures     int64 `json:"auth_failures"`
+	RateLimitHits    int64 `json:"rate_limit_hits"`
+
 	// Gauges
 	ActiveConnections int64 `json:"active_connections"`
 	DatabaseSize      int64 `json:"database_size_bytes"`
 	MessageCount      int64 `json:"message_count"`
-	
+
 	// Histograms (simplified - track average and max)
-	APILatency        *LatencyTracker `json:"api_latency_ms"`
-	SMTPLatency       *LatencyTracker `json:"smtp_latency_ms"`
-	DatabaseLatency   *LatencyTracker `json:"database_latency_ms"`
-	
+	APILatency      *LatencyTracker `json:"api_latency_ms"`
+	SMTPLatency     *LatencyTracker `json:"smtp_latency_ms"`
+	DatabaseLatency *LatencyTracker `json:"database_latency_ms"`
+
 	// Metadata
-	StartTime         time.Time `json:"start_time"`
-	LastResetTime     time.Time `json:"last_reset_time"`
+	StartTime     time.Time `json:"start_time"`
+	LastResetTime time.Time `json:"last_reset_time"`
 }
 
 // LatencyTracker tracks latency statistics
 type LatencyTracker struct {
-	mu       sync.Mutex
-	count    int64
-	sum      int64
-	max      int64
-	min      int64
-	samples  []int64 // Keep last N samples for percentiles
+	mu         sync.Mutex
+	count      int64
+	sum        int64
+	max        int64
+	min        int64
+	samples    []int64 // Keep last N samples for percentiles
 	maxSamples int
 }
 
@@ -75,17 +75,17 @@ func NewLatencyTracker(maxSamples int) *LatencyTracker {
 func (lt *LatencyTracker) Record(latencyMs int64) {
 	lt.mu.Lock()
 	defer lt.mu.Unlock()
-	
+
 	lt.count++
 	lt.sum += latencyMs
-	
+
 	if latencyMs > lt.max {
 		lt.max = latencyMs
 	}
 	if latencyMs < lt.min {
 		lt.min = latencyMs
 	}
-	
+
 	// Keep rolling window of samples
 	if len(lt.samples) >= lt.maxSamples {
 		lt.samples = lt.samples[1:]
@@ -97,7 +97,7 @@ func (lt *LatencyTracker) Record(latencyMs int64) {
 func (lt *LatencyTracker) Stats() map[string]interface{} {
 	lt.mu.Lock()
 	defer lt.mu.Unlock()
-	
+
 	if lt.count == 0 {
 		return map[string]interface{}{
 			"count": 0,
@@ -109,12 +109,12 @@ func (lt *LatencyTracker) Stats() map[string]interface{} {
 			"p99":   0,
 		}
 	}
-	
+
 	avg := lt.sum / lt.count
-	
+
 	// Calculate percentiles from samples
 	p50, p95, p99 := calculatePercentiles(lt.samples)
-	
+
 	return map[string]interface{}{
 		"count": lt.count,
 		"avg":   avg,
@@ -131,12 +131,12 @@ func calculatePercentiles(samples []int64) (p50, p95, p99 int64) {
 	if len(samples) == 0 {
 		return 0, 0, 0
 	}
-	
+
 	// Simple percentile calculation (not perfectly accurate but good enough)
 	// In production, use a proper percentile algorithm
 	sorted := make([]int64, len(samples))
 	copy(sorted, samples)
-	
+
 	// Simple bubble sort for small datasets
 	for i := 0; i < len(sorted); i++ {
 		for j := i + 1; j < len(sorted); j++ {
@@ -145,11 +145,11 @@ func calculatePercentiles(samples []int64) (p50, p95, p99 int64) {
 			}
 		}
 	}
-	
+
 	p50Index := len(sorted) * 50 / 100
 	p95Index := len(sorted) * 95 / 100
 	p99Index := len(sorted) * 99 / 100
-	
+
 	if p50Index < len(sorted) {
 		p50 = sorted[p50Index]
 	}
@@ -159,7 +159,7 @@ func calculatePercentiles(samples []int64) (p50, p95, p99 int64) {
 	if p99Index < len(sorted) {
 		p99 = sorted[p99Index]
 	}
-	
+
 	return p50, p95, p99
 }
 
@@ -217,21 +217,21 @@ func (m *Metrics) RecordLatency(category string, latencyMs int64) {
 func (m *Metrics) GetSnapshot() map[string]interface{} {
 	m.mu.RLock()
 	defer m.mu.RUnlock()
-	
+
 	uptime := time.Since(m.StartTime)
-	
+
 	return map[string]interface{}{
 		"counters": map[string]int64{
-			"messages_received":  atomic.LoadInt64(&m.MessagesReceived),
-			"messages_sent":      atomic.LoadInt64(&m.MessagesSent),
-			"messages_deleted":   atomic.LoadInt64(&m.MessagesDeleted),
-			"api_requests":       atomic.LoadInt64(&m.APIRequests),
-			"api_errors":         atomic.LoadInt64(&m.APIErrors),
-			"smtp_connections":   atomic.LoadInt64(&m.SMTPConnections),
-			"smtp_errors":        atomic.LoadInt64(&m.SMTPErrors),
-			"auth_attempts":      atomic.LoadInt64(&m.AuthAttempts),
-			"auth_failures":      atomic.LoadInt64(&m.AuthFailures),
-			"rate_limit_hits":    atomic.LoadInt64(&m.RateLimitHits),
+			"messages_received": atomic.LoadInt64(&m.MessagesReceived),
+			"messages_sent":     atomic.LoadInt64(&m.MessagesSent),
+			"messages_deleted":  atomic.LoadInt64(&m.MessagesDeleted),
+			"api_requests":      atomic.LoadInt64(&m.APIRequests),
+			"api_errors":        atomic.LoadInt64(&m.APIErrors),
+			"smtp_connections":  atomic.LoadInt64(&m.SMTPConnections),
+			"smtp_errors":       atomic.LoadInt64(&m.SMTPErrors),
+			"auth_attempts":     atomic.LoadInt64(&m.AuthAttempts),
+			"auth_failures":     atomic.LoadInt64(&m.AuthFailures),
+			"rate_limit_hits":   atomic.LoadInt64(&m.RateLimitHits),
 		},
 		"gauges": map[string]int64{
 			"active_connections": atomic.LoadInt64(&m.ActiveConnections),
@@ -256,7 +256,7 @@ func (m *Metrics) GetSnapshot() map[string]interface{} {
 func (m *Metrics) Reset() {
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	
+
 	// Reset counters
 	atomic.StoreInt64(&m.MessagesReceived, 0)
 	atomic.StoreInt64(&m.MessagesSent, 0)
@@ -268,12 +268,12 @@ func (m *Metrics) Reset() {
 	atomic.StoreInt64(&m.AuthAttempts, 0)
 	atomic.StoreInt64(&m.AuthFailures, 0)
 	atomic.StoreInt64(&m.RateLimitHits, 0)
-	
+
 	// Reset latency trackers
 	m.APILatency = NewLatencyTracker(1000)
 	m.SMTPLatency = NewLatencyTracker(1000)
 	m.DatabaseLatency = NewLatencyTracker(1000)
-	
+
 	m.LastResetTime = time.Now()
 }
 
@@ -281,7 +281,7 @@ func (m *Metrics) Reset() {
 func MetricsHandler(metrics *Metrics) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		snapshot := metrics.GetSnapshot()
-		
+
 		w.Header().Set("Content-Type", "application/json")
 		if err := json.NewEncoder(w).Encode(snapshot); err != nil {
 			http.Error(w, "Failed to encode metrics", http.StatusInternalServerError)
@@ -294,20 +294,20 @@ func MetricsMiddleware(metrics *Metrics) func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			start := time.Now()
-			
+
 			// Record API request
 			metrics.IncrementCounter("api_requests")
-			
+
 			// Wrap response writer to capture status code
 			wrapped := &responseWriter{ResponseWriter: w, statusCode: http.StatusOK}
-			
+
 			// Call next handler
 			next.ServeHTTP(wrapped, r)
-			
+
 			// Record latency
 			latency := time.Since(start).Milliseconds()
 			metrics.RecordLatency("api", latency)
-			
+
 			// Record errors
 			if wrapped.statusCode >= 400 {
 				metrics.IncrementCounter("api_errors")
